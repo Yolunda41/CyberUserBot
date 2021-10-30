@@ -23,7 +23,7 @@
 
 ## Manual Deploy - Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FaridDadashzade/CyberUserBot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/CyberUserBot/CyberUserBot)
 
 
 ### Hard way
