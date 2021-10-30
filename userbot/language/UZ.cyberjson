@@ -332,9 +332,9 @@
             "GOODBYE_MFRS": "`Ko'rishguncha... *Windows XP yopiq ovoz*`",
             "RESTARTING": "`Bot qayta yuklanmoqda...`",
             "SUPPORT_GROUP": "Siz bizning qo'llab-quvvatlash guruhimizga murojaat qilishingiz mumkin [Bu Erda](http://t.me/TheCyberSupport).",
-            "CREATOR": "Bu bot \n[Farid](https://t.me/Luciferxz) [Usta](https://t.me/FaridDadashzade) tomonidan ishlab chiqilgan. [Hamudulla](https://t.me/H_A_Eshimov) tomonidan Uzbekchaga ugirildi \n",
-            "README": "[Cyber README.md](https://github.com/FaridDadashzade/CyberUserBot/blob/master/README.md)",
-            "REPO": "[Cyber Repo](https://github.com/FaridDadashzade/CyberUserBot)",
+            "CREATOR": "Bu bot \n[Luciferxz](https://t.me/Luciferxz) tomonidan ishlab chiqilgan.\n",
+            "README": "[Cyber README.md](https://github.com/CyberUserBot/CyberUserBot/blob/master/README.md)",
+            "REPO": "[Cyber Repo](https://github.com/CyberUserBot/CyberUserBot)",
             "CHECK_LOGS": "`Xabar hal qilinganligi uchun userbot jurnallarini tekshiring!`"
         },
         "notes": {
