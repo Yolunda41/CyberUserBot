@@ -141,7 +141,7 @@ HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 RANDOM_STUFF_API_KEY = os.environ.get("RANDOM_STUFF_API_KEY", None)
 
 # Guncelleme ucun
-UPSTREAM_REPO_URL = "https://github.com/FaridDadashzade/CyberUserBot.git"
+UPSTREAM_REPO_URL = "https://github.com/FaridDadashzade/Cyber.git"
 UPSTREAM_BRANCH = os.environ.get(
     "UPSTREAM_BRANCH") or "master"
 
