@@ -140,8 +140,11 @@ HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
 # ChatBot
 RANDOM_STUFF_API_KEY = os.environ.get("RANDOM_STUFF_API_KEY", None)
 
+# cr: https://github.com/robotlog/SiriUserBot/blob/1c58cb4f61ddc9b9a8f15476d7b1639d9ab3de7d/userbot/__init__.py#L123
+STABILITY = sb(os.environ.get("STABILITY", "True"))
+
 # Guncelleme ucun
-UPSTREAM_REPO_URL = "https://github.com/FaridDadashzade/Cyber.git"
+UPSTREAM_REPO_URL = "https://github.com/FaridDadashzade/Cyber.git" if not STABILITY else "https://github.com/CyberUserBot/CyberUserBot.git"
 UPSTREAM_BRANCH = os.environ.get(
     "UPSTREAM_BRANCH") or "master"
 
