@@ -1,6 +1,7 @@
-# Copyright (C) 2021 Farid Dadashzade
-# 
-# CyberUserBot - FaridDadashzade
+# Copyright (C) 2021 FaridDadashzade.
+# Licensed under MIT license;
+# you may not use this file except in compliance with the License.
+# All rights reserved.
 
 import os
 import time
@@ -144,7 +145,7 @@ RANDOM_STUFF_API_KEY = os.environ.get("RANDOM_STUFF_API_KEY", None)
 STABILITY = sb(os.environ.get("STABILITY", "True"))
 
 # Guncelleme ucun
-UPSTREAM_REPO_URL = "https://github.com/FaridDadashzade/Cyber.git" if not STABILITY else "https://github.com/CyberUserBot/CyberUserBot.git"
+UPSTREAM_REPO_URL = "https://github.com/CyberUserBot/CyberUserBot.git" if not STABILITY else "https://github.com/FaridDadashzade/Cyber.git"
 UPSTREAM_BRANCH = os.environ.get(
     "UPSTREAM_BRANCH") or "master"
 
