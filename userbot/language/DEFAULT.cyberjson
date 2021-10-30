@@ -354,12 +354,12 @@
             "SLEEP_DESC": "İstifadə qaydası: `.sleep [saniyə]`",
             "SLEEPING": "`Xoruldayaraq yatıram...`",
             "GOODMORNIN_YALL": "`Sabahınız xeyir!`",
-            "GOODBYE_MFRS": "`Görüşənədək... *Windows XP söndürülmə səsi*`",
+            "GOODBYE_MFRS": "`Görüşənədək...` *Windows XP söndürülmə səsi*",
             "RESTARTING": "**C Y B Ξ R:**\n`Bot yenidən başladılır..`",
             "SUPPORT_GROUP": "[Buradan](http://t.me/TheCyberUserBot) Dəstək qrupumuza çata bilərsiniz.",
-            "CREATOR": "Bu bot \n[Farid](https://t.me/Luciferxz) tərəfindən hazırlanmışdır. \n",
-            "README": "[C Y B Ξ R README.md](https://github.com/FaridDadashzade/CyberUserBot/blob/main/README.md)",
-            "REPO": "[C Y B Ξ R Repo](github.com/FaridDadashzade/cyberuserbot)",
+            "CREATOR": "Bu bot \n[Luciferxz](https://t.me/Luciferxz) tərəfindən hazırlanmışdır. \n",
+            "README": "[C Y B Ξ R README.md](https://github.com/CyberUserBot/CyberUserBot/blob/master/README.md)",
+            "REPO": "[C Y B Ξ R Repo](github.com/CyberUserBot/CyberUserBot)",
             "CHECK_LOGS": "`Tapılmış Mesaj üçün istifadəçi qeydlərini yoxlayın!`"
         },
 

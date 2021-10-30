@@ -10,7 +10,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/FaridDadashzade/CyberUserBot",
+  "repository": "https://github.com/CyberUserBot/CyberUserBot",
   "website":   "https://cyberuserbot.ml",
   "success_url": "https://t.me/TheCyberSupport",
   "stack": "container",
@@ -54,7 +54,7 @@
     },
     "UPSTREAM_REPO_URL": {
       "description": "Repo Link",
-      "value": "https://github.com/FaridDadashzade/CyberUserBot",
+      "value": "https://github.com/CyberUserBot/CyberUserBot",
       "required": true
     },
     "COUNTRY": {
@@ -211,7 +211,7 @@
     },
     "LANGUAGE": {
       "description": "Choose a language. (EN/TR/AZ/UZ/IN)",
-      "value": "Your language",
+      "value": "AZ",
       "required": true
     }
   },

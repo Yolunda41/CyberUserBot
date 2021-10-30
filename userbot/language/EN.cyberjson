@@ -316,7 +316,7 @@
             "EVERYTHING_LOCK": "` I can't lock anything up, man!`",
             "INVALID_MEDIA_TYPE": "` Invalid media type: %s`",
             "LOCK": "`%s has been locked for this chat`",
-            "INVALID_AUTHORITY": "`Are you sure you have the rights to do this?`\n**Hata:**",
+            "INVALID_AUTHORITY": "`Are you sure you have the rights to do this?`\n**Error:**",
             "EVERYTHING_UNLOCK": "`I can't unlock the nothingness!`",
             "UNLOCK": "` %s unlocked for this chat `"
         },
@@ -331,9 +331,9 @@
             "GOODBYE_MFRS": "`I'll see you... *Windows XP shutdown sound* `",
             "RESTARTING": "**C Y B Ξ R:**\n`The bot is restarting..`",
             "SUPPORT_GROUP": "[From Here](http://t.me/TheCyberSupport) you can contact our support group.",
-            "CREATOR": "This bot was developed by\n[Farid](https://t.me/Luciferxz)",
-            "README": "[C Y B Ξ R README.md](https://github.com/fariddadashzade/cyberuserbot/blob/master/README.md)",
-            "REPO": "[C Y B Ξ R Repo](https://github.com/FaridDadashzade/CyberUserBot)",
+            "CREATOR": "This bot was developed by\n[Luciferxz](https://t.me/Luciferxz)",
+            "README": "[C Y B Ξ R README.md](https://github.com/CyberUserBot/CyberUserBot/blob/master/README.md)",
+            "REPO": "[C Y B Ξ R Repo](https://github.com/CyberUserBot/CyberUserBot)",
             "CHECK_LOGS": "`Check userbot logs for decoded message!`"
         },
         "notes": {
