@@ -145,7 +145,7 @@ RANDOM_STUFF_API_KEY = os.environ.get("RANDOM_STUFF_API_KEY", None)
 STABILITY = sb(os.environ.get("STABILITY", "True"))
 
 # Guncelleme ucun
-UPSTREAM_REPO_URL = "https://github.com/CyberUserBot/CyberUserBot.git" if not STABILITY else "https://github.com/FaridDadashzade/Cyber.git"
+UPSTREAM_REPO_URL = "https://github.com/CyberUserBot/CyberUserBot.git" if not STABILITY else "https://github.com/FaridDadashzade/CyberUserBot.git"
 UPSTREAM_BRANCH = os.environ.get(
     "UPSTREAM_BRANCH") or "master"
 
