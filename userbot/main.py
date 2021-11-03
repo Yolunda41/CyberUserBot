@@ -330,7 +330,7 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
     
 loop = asyncio.get_event_loop()
-LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
+LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin.")
 LOGS.info("Köməyə ehtiyacınız olarsa, @TheCyberSupport qrupuna yazın.")
 LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
 #bot.loop.run_until_complete(cyberasistan())
