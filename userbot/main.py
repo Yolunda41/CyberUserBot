@@ -293,7 +293,7 @@ async def startupcyber():
         if QRUP != 0:
             await bot.send_message(
                 QRUP,
-                f"Salam! Mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R Version: **{CYBER_VERSION}**\n**Plugin sayı: {len(CMD_HELP)}**\n**Sahib: {CYBER_NAME}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)",
+                f"Salam! Mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R Version: **{CYBER_VERSION}**\n**Plugin sayı: {len(CMD_HELP)}**\n**Sahib: {CYBER_NAME}**\n**Plugin kanalı:** @TheCyberPlugin\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)",
             )
     except Exception as e:
         LOGS.info(str(e))
@@ -331,7 +331,7 @@ for module_name in ALL_MODULES:
     
 loop = asyncio.get_event_loop()
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
-          " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
+LOGS.info("Köməyə ehtiyacınız olarsa, @TheCyberSupport qrupuna yazın.")
 LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
 #bot.loop.run_until_complete(cyberasistan())
 bot.loop.create_task(startupcyber())
