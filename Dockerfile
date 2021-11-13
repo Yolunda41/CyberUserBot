@@ -3,7 +3,7 @@
 # you may not use this file except in compliance with the License.
 # All rights reserved.
 
-FROM cyberuserbot/cyberspaceaz:latest
+FROM cyberuserbot/cyber:latest
 RUN git clone https://github.com/FaridDadashzade/CyberUserBot /root/CyberUserBot
 WORKDIR /root/CyberUserBot/
 RUN pip3 install -r requirements.txt
