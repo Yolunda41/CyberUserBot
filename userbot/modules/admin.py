@@ -114,7 +114,7 @@ async def ekle(event):
 @register(outgoing=True, pattern="^.unpin(?: |$)(.*)")
 @register(incoming=True, from_users=SUDO_ID, pattern="^.cunpin(?: |$)(.*)")
 async def unpin(event):
-    CyberUserBot = await event.edit(" ")
+    CyberUserBot = await event.edit("`C Y B Ξ R`")
     match = (event.pattern_match.group(1)).strip()
     msg = None
     if event.is_reply:
