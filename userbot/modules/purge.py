@@ -1,12 +1,12 @@
-# CYBERUSERBOT - Luciferxz #
+# Copyright (C) 2021 CyberUserBot
+#
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
-
-""" Purge """
 
 from asyncio import sleep
-
 from telethon.errors import rpcbaseerrors
-
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
@@ -18,9 +18,8 @@ LANG = get_value("purge")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.purge$")
+@register(cyber=True, pattern="^.purge$")
 async def fastpurger(purg):
-    """ .purge  """
     chat = await purg.get_input_chat()
     msgs = []
     itermsg = purg.client.iter_messages(chat, min_id=purg.reply_to_msg_id)
@@ -51,9 +50,8 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@register(outgoing=True, pattern="^.purgeme")
+@register(cyber=True, pattern="^.purgeme")
 async def purgeme(delme):
-    """ .purgeme """
     message = delme.text
     count = int(message[9:])
     i = 1
@@ -77,10 +75,8 @@ async def purgeme(delme):
     i = 1
     await smsg.delete()
 
-
-@register(outgoing=True, pattern="^.del$")
+@register(cyber=True, pattern="^.del$")
 async def delete_it(delme):
-    """ .del  """
     msg_src = await delme.get_reply_message()
     if delme.reply_to_msg_id:
         try:
@@ -94,8 +90,24 @@ async def delete_it(delme):
                 await delme.client.send_message(
                     BOTLOG_CHATID, "Bu mesajı silə bilmirəm.")
 
+@register(cyber=True, disable_errors=True, groups_only=True, pattern="^.purgeall$")
+async def purgeall(event):
+    if not event.is_reply:
+        await event.edit("`Mesajı silmək üçün bir istifadəçinin mesajına cavab verin!`")
+        return
+    sender = (await event.get_reply_message()).sender
+    try:
+        await event.client(DeleteUserHistoryRequest(event.chat_id, sender.id))
+        await event.edit(
+            f"`{sender.first_name} adlı istifadəçinin bütün mesajları silindi!`",
+        )
+        await asyncio.sleep(2)
+    except BaseException:
+        pass
+    await event.delete()
 
-@register(outgoing=True, pattern="^.edit")
+
+@register(cyber=True, pattern="^.edit")
 async def editer(edit):
     """ .editme """
     message = edit.text
@@ -117,6 +129,8 @@ CmdHelp('purge').add_command(
     'purge', None, 'Hədəflənən cavabdan başlayaraq bütün mesajları təmizləyər.'
 ).add_command(
     'purgeme', '<sayı>', 'Hədəflənən cavabdan başlayaraq öz mesajlarınızı təmizləyər.'
+).add_command(
+    'purgeall', '<cavab>', 'Cavab verdiyiniz istifadəçinin qrupdaki bütün mesajlarını silər.'
 ).add_command(
     'del', '<cavab>', 'Cavab verilən mesajı silər.'
 ).add_command(
