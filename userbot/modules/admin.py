@@ -1,6 +1,6 @@
 # Copyright (C) 2021 Farid Dadashzade
 #
-# CYBERUSERBOT - Faridxz
+# CYBERUSERBOT - FaridDadashzade
 #
 
 """
@@ -110,6 +110,26 @@ async def ekle(event):
                     await event.edit(f'`{user_id} qrupa əlavə edilə bilmədi!`')
                     continue
                 await event.edit(f'`{user_id} qrupa əlavə edildi!`')
+                
+@register(outgoing=True, pattern="^.unpin(?: |$)(.*)")
+@register(incoming=True, from_users=SUDO_ID, pattern="^.cunpin(?: |$)(.*)")
+async def unpin(event):
+    CyberUserBot = await event.edit(" ")
+    match = (event.pattern_match.group(1)).strip()
+    msg = None
+    if event.is_reply:
+        msg = event.reply_to_msg_id
+    elif match != "all":
+        return await CyberUserBot.edit("Xahiş edirəm bir sabitlənmiş mesaja cavab verin və ya `.unpin all` yazın.")
+
+    try:
+        await event.client.unpin_message(event.chat_id, msg)
+    except BadRequestError:
+        return await CyberUserBot.edit(NO_PERM)
+
+    await CyberUserBot.edit("`Mesaj uğurla sabitdən qaldırıldı!`")
+    await sleep(5)
+    await CyberUserBot.delete()
 
 
 @register(outgoing=True, pattern="^.gban(?: |$)(.*)")
@@ -1264,15 +1284,10 @@ async def get_userdel_from_id(user, event):
 
 @register(outgoing=True, pattern="^.bots$", groups_only=True)
 async def get_bots(show):
-    """ .bots komutu gruba ait olan botları listeler """
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "this chat"
     mentions = f'<b> {title} qrupunda tapılan botlar:</b>\n'
     try:
-       # if isinstance(message.to_id, PeerChat):
-        #    await show.edit("`Sadece süper grupların botlara sahip olabileceğini duydum.`")
-        #   return
-       # else:
         async for user in show.client.iter_participants(
                 show.chat_id, filter=ChannelParticipantsBots):
             if not user.deleted:
@@ -1306,19 +1321,21 @@ CmdHelp('admin').add_command(
     ).add_command(
         'ban', '<istifadəçi adı/cavab> <səbəb>', 'Qrupdaki istifadəçini susdurar, adminlərdə də işləyər.'
     ).add_command(
-        'unban', '<kullanıcı adı/yanıtlama>', 'Sohbetteki kişinin yasağını kaldırır.'
+        'unpin', '<mesaja cavab>', 'Sabitlədiyiniz mesajı sabitdən qaldırar. Sabitdəki bütün mesajları qaldırmaq üçün .unpin all yazın.'
     ).add_command(
-        'kick', '<kullanıcı adı/yanıtlama> <nedeni (isteğe bağlı)>', 'Gruptan belirttiğiniz kişiyi tekmeler.'
+        'unban', '<istifadəçi adı/cavab>', 'Cavab verdiyiniz şəxsin qadağasını qaldırar.'
     ).add_command(
-        'gmute', '<kullanıcı adı/yanıtlama> <nedeni (isteğe bağlı)>', 'Kişiyi yönetici olduğunuz tüm gruplarda susturur.'
+        'kick', '<istifadəçi adı/cavab> <səbəb (istəyə bağlı)>', 'Qeyd etdiyiniz şəxsi qrupdan atar.'
     ).add_command(
-        'ungmute', '<kullanıcı adı/yanıtlama>', 'Kişiyi küresel olarak sessize alınanlar listesinden kaldırır.'
+        'gmute', '<istifadəçi adı/cavab> <nedeni (istəyə bağlı)>', 'Kişiyi yönetici olduğunuz tüm gruplarda susturur.'
     ).add_command(
-        'zombies', None, 'Bir gruptaki silinmiş hesapları arar. Gruptan silinen hesapları kaldırmak için .zombies clean komutunu kullanın.'
+        'ungmute', '<istifadəçi adı/cavab>', 'Birini dünya miqyasında səssizə alınanlar siyahısından çıxarar.'
     ).add_command(
-        'admins', None, 'Sohbet yöneticilerinin listesini alır.'
+        'zombies', None, 'Bir qrupdaki silinmiş hesabları axtarar. Qrupdan silinmiş hesabları silmək üçün .zombies clean yazın.'
     ).add_command(
-        'bots', None, 'Bir gruptaki silinmiş hesapları arar. Gruptan silinen hesapları kaldırmak için .zombies clean komutunu kullanın.'
+        'admins', None, 'Qrup adminlərini göstərər.'
+    ).add_command(
+        'bots', None, 'Qrupda olan botları göstərir.'
     ).add_command(
         'users və ya .users', '<istifadəçi adı> <cavab>', 'Söhbətdəki bütün istifadəçiləri göstərər.'
     ).add_command(
@@ -1348,6 +1365,8 @@ CmdHelp('cadmin').add_command(
     ).add_command(
         'cdemote', '<istifadəçi adı/cavab>', 'Söhbətdəki birinin adminlik hüququnu alar.'
     ).add_command(
+        'unpin', '<mesaja cavab>', 'Sabitlədiyiniz mesajı sabitdən qaldırar. Sabitdəki bütün mesajları qaldırmaq üçün .unpin all yazın.'
+    ).add_command(
         'cban', '<istifadəçi adı/cavab> <səbəbi (istəyə bağlıdır)>', 'Söhbətdəki birini susturar, adminlərdədə işə yarayır.'
     ).add_command(
         'cunban', '<istifadəçi adı/cavab>', 'Söhbətdəki birinin qadağasını qaldırar.'
@@ -1356,7 +1375,7 @@ CmdHelp('cadmin').add_command(
     ).add_command(
         'cgmute', '<istifadəçi adı/cavab> <nedeni (istəyə bağlıdır)>', 'Birini admin olduğunuz bütün qruplarda susturar.'
     ).add_command(
-        'cungmute', '<istifadəçi adı/cavab>', 'Birini dünya miqyasında səssizə alınanlar siyahısından çıxarar sessize alınanlar.'
+        'cungmute', '<istifadəçi adı/cavab>', 'Birini dünya miqyasında səssizə alınanlar siyahısından çıxarar.'
     ).add_command(
         'cgban', '<istifadəçi adı/cavab>', 'Birini dünya miqyasında ban edər.'
     ).add_command(
