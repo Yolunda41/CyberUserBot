@@ -189,8 +189,9 @@ try:
     bot.start()
     idim = bot.get_me().id
     cyberbl = requests.get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/cyberbl.json').json()
+    bl_reason = requests.get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/cyberbl_reason.json').json()
     if idim in cyberbl:
-        bot.send_message("me", f"`C Y B Ξ R adminləri tərəfindən botdan istifadə haqqınız alındı.`")
+        bot.send_message("me", f"`C Y B Ξ R adminləri tərəfindən botdan istifadə haqqınız alındı.\nSəbəb: {bl_reason}`")
         LOGS.error("C Y B Ξ R adminləri tərəfindən botunuz deaktiv edildi.")
         bot.disconnect()
 
