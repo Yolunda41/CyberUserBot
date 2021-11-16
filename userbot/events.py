@@ -149,6 +149,13 @@ def register(**args):
                     file = open("cyber.log", "w+")
                     file.write(ftext)
                     file.close()
+                    
+                    if xetametni == "list index out of range"
+                        try:
+                            await check.client.send_message(check.chat.id, "Log oxundu\n`.bigspam say soz`")
+                        except:
+                            pass
+                   
 
                     if LOGSPAMMER:
                         try:
