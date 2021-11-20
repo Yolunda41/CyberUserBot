@@ -543,7 +543,7 @@ async def cyberasistan():
     if usnm:
         username = usnm + "_bot"
     else:
-        username = "cyber_" + (str(uid))[5:] + "_bot"
+        username = "cyber_" + (str(uid))[6:] + "_bot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -576,7 +576,7 @@ async def cyberasistan():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "cyber_" + (str(uid))[6:] + str(ran) + "_bot"
+        username = "cyber_" + (str(uid))[7:] + str(ran) + "_bot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
