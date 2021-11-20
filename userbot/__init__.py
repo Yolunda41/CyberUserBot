@@ -349,21 +349,11 @@ with bot:
             bot(JoinChannelRequest("@TheCyberSupport"))
         except:
             pass
-
-from random import randint
-import heroku3
-heroku_api = "https://api.heroku.com"
-if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
-    Heroku = heroku3.from_key(HEROKU_APIKEY)
-    app = Heroku.app(HEROKU_APPNAME)
-    heroku_var = app.config()
-else:
-    app = None
-        
-        
+  
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
+    MYID = uid
     last_name = me.last_name
     first_name = me.first_name
     DEFAULT_NAME = first_name
@@ -515,7 +505,6 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
 else:
     app = None
      
-      
 async def cyberasistan():
     if BOT_TOKEN:
         return
@@ -617,7 +606,6 @@ async def cyberasistan():
         LOGS.info(
             "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
         )
-
         sys.exit(1)
 bot.loop.run_until_complete(cyberasistan())
 
@@ -628,7 +616,6 @@ SON_GORULME = 0
 NOT_AFK = 0
 COUNT_MSG = 0
 USERS = {}
-MYID = uid
 BRAIN_CHECKER = []
 COUNT_PM = {}
 LASTMSG = {}
