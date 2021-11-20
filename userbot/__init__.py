@@ -350,6 +350,17 @@ with bot:
         except:
             pass
 
+from random import randint
+import heroku3
+heroku_api = "https://api.heroku.com"
+if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
+    Heroku = heroku3.from_key(HEROKU_APIKEY)
+    app = Heroku.app(HEROKU_APPNAME)
+    heroku_var = app.config()
+else:
+    app = None
+        
+        
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
@@ -363,6 +374,7 @@ with bot:
     cyber_m = me.id
     SAHIB_ID = me.id
     cyber_mention = f"[{me}](tg://user?id={cyber_m})"
+    
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
@@ -402,7 +414,7 @@ with bot:
 Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərsiniz.""",
                     buttons=[
                         [custom.Button.url("Kanala Qatıl", "https://t.me/TheCyberUserBot"), custom.Button.url(
-                            "Support", "https://t.me/OwenSupport")],
+                            "Support", "https://t.me/TheCyberSupport")],
                         [custom.Button.url(
                             "GitHub", "https://github.com/CyberUserBot/CyberUserBot")]
                     ],
@@ -578,6 +590,7 @@ async def cyberasistan():
             LOGS.info(
                 "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
             )
+            
             sys.exit(1)
     elif isdone.startswith("Done!"):
         token = isdone.split("`")[1]
