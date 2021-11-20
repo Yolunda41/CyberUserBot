@@ -6,6 +6,7 @@
 import os
 import time
 import sys
+import asyncio
 from re import compile
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
