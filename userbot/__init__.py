@@ -629,10 +629,8 @@ async def autobotlog():
     BOTLOG_LOGO = "https://telegra.ph/file/2b7c70f6a262e6bbd41ad.jpg"    
     await bot.start()
     LOGS.info("Botlog ayarlanır...")
+    bot.loop.create_task(autobotlog())
 """
-
-bot.loop.create_task(autobotlog())
-
 
 # Dəyişgənlər
 SON_GORULME = 0
