@@ -529,6 +529,7 @@ async def cyberasistan():
     LOGS.info("C Y B Ξ R asistanı ayarlanır...")
     DEFAULT_NAME + "-nin asistanı"
     usnm = ISTIFADECI_ADI
+    name = DEFAULT_NAME
     if usnm:
         username = usnm + "_bot"
     else:
@@ -594,7 +595,6 @@ async def cyberasistan():
             LOGS.info(
                 "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
             )
-
             exit(1)
     elif isdone.startswith("Done!"):
         token = isdone.split("`")[1]
