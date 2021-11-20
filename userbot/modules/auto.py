@@ -11,7 +11,7 @@ from telethon.tl import functions
 from telethon.tl.functions.account import (UpdateProfileRequest,
                                            UpdateUsernameRequest)
 
-from userbot import CMD_HELP, ASYNC_POOL, bot, DEFAULT_NAME, BOTLOG, BOTLOG_CHATID
+from userbot import CMD_HELP, ASYNC_POOL, bot, DEFAULT_NAME, BOTLOG, BOTLOG_CHATID, DEFAULT_BIO
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
@@ -80,7 +80,7 @@ async def auto(event):
 @register(outgoing=True, pattern="^.resauto")
 async def reauto(resauto):
     cyberad = DEFAULT_NAME
-    about = "@TheCyberUserBot"
+    about = DEFAULT_BIO
     if " " not in cyberad:
         firstname = cyberad
         lastname = ""

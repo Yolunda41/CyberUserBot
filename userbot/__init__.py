@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 from requests import get
 from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelRequest
 from telethon.sync import TelegramClient, custom
+from telethon.tl.functions.users import GetFullUserRequest
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from math import ceil
@@ -208,7 +209,6 @@ CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
 # Last.fm modulu
 BIO_PREFIX = os.environ.get("BIO_PREFIX", "@TheCyberUserBot | ")
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
@@ -350,13 +350,15 @@ with bot:
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
-    CYBER_USERNAME = bot.get_me()
-    istifadeci = bot.get_me()
-    DEFAULT_NAME = f"{istifadeci.first_name}"
-    ALIVE_NAME = f"{istifadeci.first_name}"
+    last_name = me.last_name
+    first_name = me.first_name
+    DEFAULT_NAME = first_name + last_name
+    bioqrafiya = bot(GetFullUserRequest(uid))
+    DEFAULT_BIO = bioqrafiya.about
+    ALIVE_NAME = DEFAULT_NAME
     cyber_m = me.id
     SAHIB_ID = me.id
-    cyber_mention = f"[{CYBER_USERNAME}](tg://user?id={cyber_m})"
+    cyber_mention = f"[{me}](tg://user?id={cyber_m})"
     
     
     try:
@@ -502,7 +504,7 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
         LOGS.info(
             "Botunuzda inline dəstəyi deaktivdir. "
             "Aktivləşdirmək üçün bir bot token qeyd edin və botunuzda inline modunu aktivləşdirin. "
-            "Əgər bunun xaricində bir xəts olduğunu düşünürsünüzsə, bizə yazın t.me/TheCyberSupport."
+            "Əgər bunun xaricində bir xəta olduğunu düşünürsünüzsə, bizə yazın t.me/TheCyberSupport."
         )
 
     try:
@@ -513,6 +515,110 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
             "Ortam dəyişgənlərinizi / config.env faylınızı kontrol edin."
         )
         quit(1)
+
+
+async def cyberasistan():
+    if BOT_TOKEN:
+        return
+    ASISTAN_LOGO = "https://telegra.ph/file/2b7c70f6a262e6bbd41ad.jpg"    
+    await bot.start()
+    LOGS.info("C Y B Ξ R asistanı ayarlanır...")
+    DEFAULT_NAME + "-nin asistanı"
+    if usnm:
+        username = usnm + "_bot"
+    else:
+        username = "cyber_" + (str(uid))[5:] + "_bot"
+    bf = "@BotFather"
+    await bot(UnblockRequest(bf))
+    await bot.send_message(bf, "/cancel")
+    await asyncio.sleep(1)
+    await bot.send_message(bf, "/start")
+    await asyncio.sleep(1)
+    await bot.send_message(bf, "/newbot")
+    await asyncio.sleep(1)
+    isdone = (await bot.get_messages(bf, limit=1))[0].text
+    if isdone.startswith("That I cannot do."):
+        LOGS.info(
+            "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+        )
+        exit(1)
+    await bot.send_message(bf, name)
+    await asyncio.sleep(1)
+    isdone = (await bot.get_messages(bf, limit=1))[0].text
+    if not isdone.startswith("Good."):
+        await bot.send_message(bf, "My C Y B Ξ R Bot")
+        await asyncio.sleep(1)
+        isdone = (await bot.get_messages(bf, limit=1))[0].text
+        if not isdone.startswith("Good."):
+            LOGS.info(
+                "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+            )
+            exit(1)
+    await bot.send_message(bf, username)
+    await asyncio.sleep(1)
+    isdone = (await bot.get_messages(bf, limit=1))[0].text
+    await bot.send_read_acknowledge("botfather")
+    if isdone.startswith("Sorry,"):
+        ran = randint(1, 100)
+        username = "cyber_" + (str(uid))[6:] + str(ran) + "_bot"
+        await bot.send_message(bf, username)
+        await asyncio.sleep(1)
+        nowdone = (await bot.get_messages(bf, limit=1))[0].text
+        if nowdone.startswith("Done!"):
+            token = nowdone.split("`")[1]
+            heroku_var["BOT_TOKEN"] = token
+            heroku_var["BOT_USERNAME"] = username
+            await bot.send_message(bf, "/setinline")
+            await asyncio.sleep(1)
+            await bot.send_message(bf, f"@{username}")
+            await asyncio.sleep(1)
+            await bot.send_message(bf, "Search")
+            await asyncio.sleep(1)
+            await bot.send_message(bf, "/setdescription")
+            await asyncio.sleep(1)
+            await bot.send_message(bf, f"@{username}")
+            await asyncio.sleep(1)
+            await bot.send_message(bf, "@TheCyberUserBot Asistan")
+            await bot.send_message(bf, "/setuserpic")
+            await asyncio.sleep(1)
+            await bot.send_message(bf, f"@{username}")
+            await asyncio.sleep(1)
+            await bot.send_file(bf, ASISTAN_LOGO) 
+            LOGS.info(f"@{username} Asistanınız hazırdır.")
+        else:
+            LOGS.info(
+                "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+            )
+
+            exit(1)
+    elif isdone.startswith("Done!"):
+        token = isdone.split("`")[1]
+        heroku_var["BOT_TOKEN"] = token
+        heroku_var["BOT_USERNAME"] = username
+        await bot.send_message(bf, "/setinline")
+        await asyncio.sleep(1)
+        await bot.send_message(bf, f"@{username}")
+        await asyncio.sleep(1)
+        await bot.send_message(bf, "Search")
+        await asyncio.sleep(1)
+        await bot.send_message(bf, "/setdescription")
+        await asyncio.sleep(1)
+        await bot.send_message(bf, f"@{username}")
+        await asyncio.sleep(1)
+        await bot.send_message(bf, "@TheCyberUserBot Asistan")
+        await bot.send_message(bf, "/setuserpic")
+        await asyncio.sleep(1)
+        await bot.send_message(bf, f"@{username}")
+        await asyncio.sleep(1)
+        await bot.send_file(bf, ASISTAN_LOGO) 
+        LOGS.info(f"@{username} Asistanınız hazırdır")
+    else:
+        LOGS.info(
+            "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
+        )
+
+        exit(1)
+bot.loop.run_until_complete(cyberasistan())
 
 
 # Dəyişgənlər
