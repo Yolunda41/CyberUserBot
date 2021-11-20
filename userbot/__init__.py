@@ -353,6 +353,7 @@ with bot:
     last_name = me.last_name
     first_name = me.first_name
     DEFAULT_NAME = first_name + last_name
+    ISTIFADECI_ADI = me.username
     bioqrafiya = bot(GetFullUserRequest(uid))
     DEFAULT_BIO = bioqrafiya.about
     ALIVE_NAME = DEFAULT_NAME
@@ -524,6 +525,7 @@ async def cyberasistan():
     await bot.start()
     LOGS.info("C Y B Ξ R asistanı ayarlanır...")
     DEFAULT_NAME + "-nin asistanı"
+    usnm = ISTIFADECI_ADI
     if usnm:
         username = usnm + "_bot"
     else:
