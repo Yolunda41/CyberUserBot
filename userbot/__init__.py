@@ -16,13 +16,15 @@ from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from dotenv import load_dotenv
 from requests import get
-from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelRequest
+from telethon.tl.functions.channels import JoinChannelRequest, LeaveChannelRequest, InviteToChannelRequest
 from telethon.sync import TelegramClient, custom
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from math import ceil
 from datetime import datetime
+from telethon.events import * 
+from telethon.tl.functions.contacts import UnblockRequest
 
 
 load_dotenv("config.env")
