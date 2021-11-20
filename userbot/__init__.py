@@ -355,7 +355,7 @@ with bot:
     uid = me.id
     last_name = me.last_name
     first_name = me.first_name
-    DEFAULT_NAME = first_name + last_name
+    DEFAULT_NAME = first_name
     ISTIFADECI_ADI = me.username
     bioqrafiya = bot(GetFullUserRequest(uid))
     DEFAULT_BIO = bioqrafiya.about
