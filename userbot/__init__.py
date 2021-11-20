@@ -520,7 +520,17 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
         )
         quit(1)
 
-
+from random import randint
+import heroku3
+heroku_api = "https://api.heroku.com"
+if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
+    Heroku = heroku3.from_key(HEROKU_APIKEY)
+    app = Heroku.app(HEROKU_APPNAME)
+    heroku_var = app.config()
+else:
+    app = None
+     
+      
 async def cyberasistan():
     if BOT_TOKEN:
         return
