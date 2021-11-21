@@ -493,7 +493,7 @@ except:
             "BOTLOG_CHATID səhvdir.  "
             "Heroku configlərini kontrol edin."
         )
-        quit(1)
+        
 
 from random import randint
 import heroku3
