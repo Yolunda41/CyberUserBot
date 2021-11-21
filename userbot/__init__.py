@@ -508,7 +508,7 @@ else:
 async def cyberasistan():
     if BOT_TOKEN:
         return
-    ASISTAN_LOGO = "https://telegra.ph/file/2b7c70f6a262e6bbd41ad.jpg"    
+    ASISTAN_LOGO = "https://telegra.ph/file/70dd4ae890b0b174ab479.jpg"    
     await bot.start()
     LOGS.info("C Y B Ξ R asistanı ayarlanır...")
     DEFAULT_NAME + "-nin asistanı"
