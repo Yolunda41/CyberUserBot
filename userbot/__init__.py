@@ -490,8 +490,8 @@ try:
         bot.loop.run_until_complete(check_botlog_chatid())
 except:
         LOGS.info(
-            "BOTLOG_CHATID ortam değişkeni geçerli bir varlık değildir. "
-            "Ortam değişkenlerinizi / config.env dosyanızı kontrol edin."
+            "BOTLOG_CHATID səhvdir.  "
+            "Heroku configlərini kontrol edin."
         )
         quit(1)
 
