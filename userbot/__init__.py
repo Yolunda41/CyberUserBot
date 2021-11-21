@@ -336,10 +336,10 @@ def butonlastir(sayfa, moduller):
     butonlar = []
     for pairs in pairs[sayfa]:
         butonlar.append([
-            custom.Button.inline("✅ " + pair, data=f"bilgi[{sayfa}]({pair})") for pair in pairs
+            custom.Button.inline("🔸 " + pair, data=f"bilgi[{sayfa}]({pair})") for pair in pairs
         ])
 
-    butonlar.append([custom.Button.inline("⬅️ Geri", data=f"sayfa({(max_pages - 1) if sayfa == 0 else (sayfa - 1)})"), custom.Button.inline("İrəli ➡️", data=f"sayfa({0 if sayfa == (max_pages - 1) else sayfa + 1})")])
+    butonlar.append([custom.Button.inline("◀️ Geri", data=f"sayfa({(max_pages - 1) if sayfa == 0 else (sayfa - 1)})"), custom.Button.inline("İrəli ▶️", data=f"sayfa({0 if sayfa == (max_pages - 1) else sayfa + 1})")])
     return [max_pages, butonlar]
 
 with bot:
@@ -521,11 +521,11 @@ async def cyberasistan():
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
-    await asyncio.sleep(1)
+    time.sleep(3)
     await bot.send_message(bf, "/start")
-    await asyncio.sleep(1)
+    time.sleep(3)
     await bot.send_message(bf, "/newbot")
-    await asyncio.sleep(1)
+    time.sleep(3)
     isdone = (await bot.get_messages(bf, limit=1))[0].text
     if isdone.startswith("That I cannot do."):
         LOGS.info(
@@ -533,11 +533,11 @@ async def cyberasistan():
         )
         sys.exit(1)
     await bot.send_message(bf, name)
-    await asyncio.sleep(1)
+    time.sleep(3)
     isdone = (await bot.get_messages(bf, limit=1))[0].text
     if not isdone.startswith("Good."):
         await bot.send_message(bf, "My C Y B Ξ R Bot")
-        await asyncio.sleep(1)
+        time.sleep(3)
         isdone = (await bot.get_messages(bf, limit=1))[0].text
         if not isdone.startswith("Good."):
             LOGS.info(
@@ -545,68 +545,70 @@ async def cyberasistan():
             )
             sys.exit(1)
     await bot.send_message(bf, username)
-    await asyncio.sleep(1)
+    time.sleep(3)
     isdone = (await bot.get_messages(bf, limit=1))[0].text
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
         username = "cyber_" + (str(uid))[7:] + str(ran) + "_bot"
         await bot.send_message(bf, username)
-        await asyncio.sleep(1)
+        time.sleep(3)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
         if nowdone.startswith("Done!"):
             token = nowdone.split("`")[1]
+            await bot.send_message(bf, "/setinline")
+            time.sleep(3)
+            await bot.send_message(bf, f"@{username}")
+            time.sleep(3)
+            await bot.send_message(bf, "Search")
+            time.sleep(3)
+            await bot.send_message(bf, "/setabouttext")
+            time.sleep(3)
+            await bot.send_message(bf, f"@{username}")
+            time.sleep(3)
+            await bot.send_message(bf, "@TheCyberUserBot Asistan")
+            time.sleep(3)
+            await bot.send_message(bf, "/setuserpic")
+            time.sleep(3)
+            await bot.send_message(bf, f"@{username}")
+            time.sleep(3)
+            await bot.send_file(bf, ASISTAN_LOGO)
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = username
-            await bot.send_message(bf, "/setinline")
-            await asyncio.sleep(1)
-            await bot.send_message(bf, f"@{username}")
-            await asyncio.sleep(1)
-            await bot.send_message(bf, "Search")
-            await asyncio.sleep(1)
-            await bot.send_message(bf, "/setdescription")
-            await asyncio.sleep(1)
-            await bot.send_message(bf, f"@{username}")
-            await asyncio.sleep(1)
-            await bot.send_message(bf, "@TheCyberUserBot Asistan")
-            await bot.send_message(bf, "/setuserpic")
-            await asyncio.sleep(1)
-            await bot.send_message(bf, f"@{username}")
-            await asyncio.sleep(1)
-            await bot.send_file(bf, ASISTAN_LOGO) 
             LOGS.info(f"@{username} Asistanınız hazırdır.")
         else:
             LOGS.info(
                 "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
             )
-            
             sys.exit(1)
     elif isdone.startswith("Done!"):
         token = isdone.split("`")[1]
+        await bot.send_message(bf, "/setinline")
+        time.sleep(3)
+        await bot.send_message(bf, f"@{username}")
+        time.sleep(3)
+        await bot.send_message(bf, "Search")
+        time.sleep(3)
+        await bot.send_message(bf, "/setabouttext")
+        time.sleep(3)
+        await bot.send_message(bf, f"@{username}")
+        time.sleep(3)
+        await bot.send_message(bf, "@TheCyberUserBot Asistan")
+        time.sleep(3)
+        await bot.send_message(bf, "/setuserpic")
+        time.sleep(3)
+        await bot.send_message(bf, f"@{username}")
+        time.sleep(3)
+        await bot.send_file(bf, ASISTAN_LOGO) 
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = username
-        await bot.send_message(bf, "/setinline")
-        await asyncio.sleep(1)
-        await bot.send_message(bf, f"@{username}")
-        await asyncio.sleep(1)
-        await bot.send_message(bf, "Search")
-        await asyncio.sleep(1)
-        await bot.send_message(bf, "/setdescription")
-        await asyncio.sleep(1)
-        await bot.send_message(bf, f"@{username}")
-        await asyncio.sleep(1)
-        await bot.send_message(bf, "@TheCyberUserBot Asistan")
-        await bot.send_message(bf, "/setuserpic")
-        await asyncio.sleep(1)
-        await bot.send_message(bf, f"@{username}")
-        await asyncio.sleep(1)
-        await bot.send_file(bf, ASISTAN_LOGO) 
         LOGS.info(f"@{username} Asistanınız hazırdır")
     else:
         LOGS.info(
             "Avtomatik bot yaratma prosesi alınmadı. @BotFather-dən manual olaraq bot yaradın."
         )
         sys.exit(1)
+        
 bot.loop.run_until_complete(cyberasistan())
 
 
