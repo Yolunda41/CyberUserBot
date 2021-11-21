@@ -104,21 +104,21 @@ def register(**args):
 
                     eventtext = str(check.text)
                     xetametni = str(sys.exc_info()[1])
-                    text = "**CYBΞR ERROR LOG**\n"
+                    text = "**=== ✘ C Y B Ξ R ERROR LOG ✘ ===**\n"
                     link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
-                        text += f"\n**⚙ Səbəb:** {eventtext}\n"
-                    text += "\n🔸️ İstəsəniz bunu bizə bildirə bilərsiniz."
-                    text += f" Sadəcə bu mesajı {link} göndərin.\n"
-                    text += "Xəta və tarix xaricində heç bir şey qeyd edilmir.\n"
+                        text += f"\n**⚙ Səbəb:** `{eventtext}`\n"
+                    text += "\n\nℹ️ **Bir xəta baş verdi❗️"
+                    text += f"\n\n**Xətanın nə olduğunu öyrənmək istəyirsinizsə,**\n**bu mesajı {link} göndərin.**\n"
+                    text += "**Xəta və tarix xaricində heç bir şey qeyd edilmir.**\n"
 
-                    ftext = "========== XEBERDARLIQ =========="
+                    ftext = "========== XƏBƏRDARLIQ =========="
                     ftext += "\nBu fayl sadəcə bura yüklənib,"
                     ftext += "\nSadəcə xəta və tarixi qeyd edirik,"
                     ftext += "\nGizliliyiniz bizim üçün önəmlidir,"
                     ftext += "\nBurada hər hansı bir gizli məlumat olarsa"
                     ftext += "\nBu xəta bildirişi olmaz, heç kəs sizin məlumatlarınızı oğurlaya bilməz.\n"
-                    ftext += "--------USERBOT XƏTA LOG--------\n"
+                    ftext += "--------C Y B Ξ R ERROR LOG--------\n"
                     ftext += "\nTarix: " + date
                     ftext += "\nQrup ID: " + str(check.chat_id)
                     ftext += "\nGöndərən adamın ID: " + str(check.sender_id)
@@ -128,7 +128,7 @@ def register(**args):
                     ftext += str(sys.exc_info()[1])
                     ftext += "\n\n\nDaha ətraflı:\n"
                     ftext += str(format_exc())
-                    ftext += "\n\n--------USERBOT XETA LOGU SON--------"
+                    ftext += "\n\n--------C Y B Ξ R E R R O R LOG--------"
                     ftext += "\n\n================================\n"
                     ftext += f"====== ⚠️ Version : {CYBER_VERSION} ======\n"
                     ftext += "================================"
@@ -229,3 +229,5 @@ def startcyberbot(shortname):
         spec.loader.exec_module(mod)
         sys.modules["userbot.cyber" + shortname] = mod
         print("CYBΞR ASSISTANT" + shortname)  
+
+        
