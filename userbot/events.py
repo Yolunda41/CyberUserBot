@@ -108,7 +108,7 @@ def register(**args):
                     link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
                         text += f"\n**⚙ Səbəb:** `{eventtext}`\n"
-                    text += "\n\nℹ️ **Bir xəta baş verdi❗️"
+                    text += "\nℹ️ **Bir xəta baş verdi❗️**"
                     text += f"\n\n**Xətanın nə olduğunu öyrənmək istəyirsinizsə,**\n**bu mesajı {link} göndərin.**\n"
                     text += "**Xəta və tarix xaricində heç bir şey qeyd edilmir.**\n"
 
@@ -121,14 +121,14 @@ def register(**args):
                     ftext += "--------C Y B Ξ R ERROR LOG--------\n"
                     ftext += "\nTarix: " + date
                     ftext += "\nQrup ID: " + str(check.chat_id)
-                    ftext += "\nGöndərən adamın ID: " + str(check.sender_id)
+                    ftext += "\nGöndərənin ID: " + str(check.sender_id)
                     ftext += "\n\nƏmr:\n"
                     ftext += str(check.text)
                     ftext += "\n\nXəta mətni:\n"
                     ftext += str(sys.exc_info()[1])
                     ftext += "\n\n\nDaha ətraflı:\n"
                     ftext += str(format_exc())
-                    ftext += "\n\n--------C Y B Ξ R E R R O R LOG--------"
+                    ftext += "\n\n--------C Y B Ξ R ERROR LOG--------"
                     ftext += "\n\n================================\n"
                     ftext += f"====== ⚠️ Version : {CYBER_VERSION} ======\n"
                     ftext += "================================"
