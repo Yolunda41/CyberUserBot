@@ -1,7 +1,6 @@
-# Copyright (C) 2021 FaridDadashzade.
-# Licensed under MIT license;
-# you may not use this file except in compliance with the License.
-# All rights reserved.
+# Copyright (C) 2021 Farid Dadashzade
+# 
+# CyberUserBot - FaridDadashzade
 
 import os
 import time
@@ -24,9 +23,6 @@ from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from math import ceil
 from datetime import datetime
-from telethon.events import * 
-from telethon.tl.functions.contacts import UnblockRequest
-
 
 load_dotenv("config.env")
 
@@ -77,7 +73,6 @@ SUDO_VERSION = "v1.1"
 # Asistan özəlliyi
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
-CYBER_BOT = os.environ.get("CYBER_BOT", None)
 
 # API KEY və API HASH
 API_KEY = os.environ.get("API_KEY", None)
@@ -88,14 +83,6 @@ try:
 except ValueError:
     raise Exception("SUDO_ID qeyd etməmisiniz!")
     
-"""
-sudos = SUDO_ID
-if sudos:
-    is_sudo = "True"
-else:
-    is_sudo = "False"
-"""
-
 SILINEN_PLUGIN = {}
 # StringSession
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
@@ -111,16 +98,10 @@ BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 BOTLOG_TAGGER = os.environ.get("BOTLOG_TAGGER", "DEAKTIV")
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
 
-# CYBER
-CSESSION = os.environ.get("CSESSION", None)
-ADMINLER = os.environ.get("ADMINLER", None)
-PREFIKS = os.environ.get("PREFIKS", None)
-
 # Hey! Bu botdur. qormxa ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
 # Credits: https://github.com/TamilBots/TamilUserBot/blob/9ce736688d37fa42f9716f2d2b2700c1eb1d4bcd/userbot/__init__.py#L140
-
 async def get_call(event):
     mm = await event.client(getchat(event.chat_id))
     xx = await event.client(getvc(mm.full_chat.call))
@@ -336,10 +317,10 @@ def butonlastir(sayfa, moduller):
     butonlar = []
     for pairs in pairs[sayfa]:
         butonlar.append([
-            custom.Button.inline("🔸 " + pair, data=f"bilgi[{sayfa}]({pair})") for pair in pairs
+            custom.Button.inline("✅ " + pair, data=f"bilgi[{sayfa}]({pair})") for pair in pairs
         ])
 
-    butonlar.append([custom.Button.inline("◀️ Geri", data=f"sayfa({(max_pages - 1) if sayfa == 0 else (sayfa - 1)})"), custom.Button.inline("İrəli ▶️", data=f"sayfa({0 if sayfa == (max_pages - 1) else sayfa + 1})")])
+    butonlar.append([custom.Button.inline("⬅️ Geri", data=f"sayfa({(max_pages - 1) if sayfa == 0 else (sayfa - 1)})"), custom.Button.inline("İrəli ➡️", data=f"sayfa({0 if sayfa == (max_pages - 1) else sayfa + 1})")])
     return [max_pages, butonlar]
 
 with bot:
@@ -353,7 +334,6 @@ with bot:
     moduller = CMD_HELP
     me = bot.get_me()
     uid = me.id
-    MYID = uid
     last_name = me.last_name
     first_name = me.first_name
     DEFAULT_NAME = first_name
@@ -365,15 +345,36 @@ with bot:
     SAHIB_ID = me.id
     cyber_mention = f"[{me}](tg://user?id={cyber_m})"
     
+    
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Salam mənim adım` @TheCyberUserBot`! Mən sahibimə (`@{me.username}`) yardım etmək üçün varam yəni sənə kömək edə bilmərəm.\nAmma səndə @TheCyberUserBot qura bilərsən. Support qrupu: @TheCyberSupport')
+                 await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
             else:
-                await event.reply(f'`C Y B Ξ R is working... `')
-
-        @tgbot.on(InlineQuery)  # pylint:disable=E0602
+                await event.reply(f'`Salam {DEFAULT_NAME}!\nC Y B Ξ R asistanı aktivdir.')
+          
+        
+        @tgbot.on(NewMessage(pattern='/help'))
+        async def helpmesaji(event):
+            if not event.message.from_id == uid:
+                await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
+            else:
+                await event.reply(f'TEZLIKLƏ')
+                
+                
+        """
+        
+        @tgbot.on(NewMessage(pattern='/ping'))
+        async def ping(event)
+            if event.message.from_id != uid:
+                basla = datetime.now()
+                son = datetime.now()
+                pin = (son - basla).microseconds / 1000
+                await tgbot.send_message(event.chat_id, f"**Ping:** `{pin}ms`")
+        """
+                                  
+        @tgbot.on(InlineQuery)  
         async def inline_handler(event):
             builder = event.builder
             result = None
@@ -382,16 +383,16 @@ with bot:
                 rev_text = query[::-1]
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
-                    f"Xahiş edirəm sadəcə .yardım əmri ilə istifadə edin.",
-                    text=f"[C Y B Ξ R](https://t.me/TheCyberUserBot) __işləyir...__\n\n**Modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
+                    f"Xahiş edirəm sadəcə .help əmrini istifadə edin.",
+                    text=f"**C Y B Ξ R USERBOT**\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
             elif query.startswith("http"):
                 parca = query.split(" ")
                 result = builder.article(
-                    "Fayl Yükləndi",
-                    text=f"**Fayl uğurla {parca[2]} saytına yükləndi!**\n\nTəxmini: {parca[1][:3]} saniyə\n[‏‏‎ ‎]({parca[0]})",
+                    "Fayl yükləndi",
+                    text=f"**Fayl uğurla {parca[2]} saytına yükləndi!**\n\nYükləmə zamanı: {parca[1][:3]} saniyə\n[‏‏‎ ‎]({parca[0]})",
                     buttons=[
                         [custom.Button.url('URL', parca[0])]
                     ],
@@ -400,13 +401,13 @@ with bot:
             else:
                 result = builder.article(
                     "@TheCyberUserBot",
-                    text="""@TheCyberUserBot'u istifadə etməyi yoxlayın!
-Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərsiniz.""",
+                    text="""@TheCyberUserBot-u işlətməyi yoxlayın!
+Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz.""",
                     buttons=[
                         [custom.Button.url("Kanala Qatıl", "https://t.me/TheCyberUserBot"), custom.Button.url(
-                            "Support", "https://t.me/TheCyberSupport")],
+                            "Qrupa Qatıl", "https://t.me/TheCyberSupport")],
                         [custom.Button.url(
-                            "GitHub", "https://github.com/CyberUserBot/CyberUserBot")]
+                            "GitHub", "https://github.com/FaridDadashzade/CyberUserBot")]
                     ],
                     link_preview=False
                 )
@@ -415,11 +416,11 @@ Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərs
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"sayfa\((.+?)\)")))
         async def sayfa(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişdirməyə çalışma özünə @TheCyberUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişməyə çalışma! Özünə bir @TheCyberUserBot qur.", cache_time=0, alert=True)
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"[C Y B Ξ R](https://t.me/TheCyberUserBot) __işləyir...__\n\n**Modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** {sayfa + 1}/{veriler[0]}",
+                f"**C Y B Ξ R USERBOT**\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
@@ -427,17 +428,17 @@ Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərs
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"bilgi\[(\d*)\]\((.*)\)")))
         async def bilgi(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişdirməyə çalışma özünə @TheCyberUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişməyə çalışma! Özünə bir @TheCyberUserBot qur.", cache_time=0, alert=True)
 
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             komut = event.data_match.group(2).decode("UTF-8")
             try:
-                butonlar = [custom.Button.inline("🔹 " + cmd[0], data=f"komut[{komut}[{sayfa}]]({cmd[0]})") for cmd in CMD_HELP_BOT[komut]['commands'].items()]
+                butonlar = [custom.Button.inline("⚜ " + cmd[0], data=f"komut[{komut}[{sayfa}]]({cmd[0]})") for cmd in CMD_HELP_BOT[komut]['commands'].items()]
             except KeyError:
-                return await event.answer("❌ Bu modula açıqlama qeyd olunmayıb.", cache_time=0, alert=True)
+                return await event.answer("❌ Bu modula açıqlama yazılmayıb.", cache_time=0, alert=True)
 
             butonlar = [butonlar[i:i + 2] for i in range(0, len(butonlar), 2)]
-            butonlar.append([custom.Button.inline("◀️ Geri", data=f"sayfa({sayfa})")])
+            butonlar.append([custom.Button.inline("⬅️ Geri", data=f"sayfa({sayfa})")])
             await event.edit(
                 f"**📗 Fayl:** `{komut}`\n**🔢 Əmr sayı:** `{len(CMD_HELP_BOT[komut]['commands'])}`",
                 buttons=butonlar,
@@ -447,13 +448,13 @@ Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərs
         @tgbot.on(callbackquery.CallbackQuery(data=compile(b"komut\[(.*)\[(\d*)\]\]\((.*)\)")))
         async def komut(event):
             if not event.query.user_id == uid: 
-                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişdirməyə çalışma özünə @TheCyberUserBot qur.", cache_time=0, alert=True)
+                return await event.answer("❌ Hey! Mənim mesajlarımı dəyişməyə çalışma! Özünə bir @TheCyberUserBot qur.", cache_time=0, alert=True)
 
             cmd = event.data_match.group(1).decode("UTF-8")
             sayfa = int(event.data_match.group(2).decode("UTF-8"))
             komut = event.data_match.group(3).decode("UTF-8")
 
-            result = f"**📗 Fayl:** `{cmd}`\n"
+            result = f"**✅ Fayl:** `{cmd}`\n"
             if CMD_HELP_BOT[cmd]['info']['info'] == '':
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
                     result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
@@ -463,8 +464,8 @@ Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərs
             else:
                 result += f"**⬇️ Rəsmi:** {'✅' if CMD_HELP_BOT[cmd]['info']['official'] else '❌'}\n"
                 if not CMD_HELP_BOT[cmd]['info']['warning'] == '':
-                    result += f"**⚠️ Diqqət:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
-                result += f"**ℹ️ Məlumat:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
+                    result += f"**⚠️ Uyarı:** {CMD_HELP_BOT[cmd]['info']['warning']}\n"
+                result += f"**ℹ️ Info:** {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
 
             command = CMD_HELP_BOT[cmd]['commands'][komut]
             if command['params'] is None:
@@ -480,19 +481,25 @@ Hesabınızı bota çevirə bilərsiniz və bu modulları istifadə edə bilərs
 
             await event.edit(
                 result,
-                buttons=[custom.Button.inline("◀️ Geri", data=f"bilgi[{sayfa}]({cmd})")],
+                buttons=[custom.Button.inline("⬅️ Geri", data=f"bilgi[{sayfa}]({cmd})")],
                 link_preview=False
             )
     except Exception as e:
-        pass
-
-try:
-        bot.loop.run_until_complete(check_botlog_chatid())
-except:
+        print(e)
         LOGS.info(
-            "BOTLOG_CHATID səhvdir.  "
-            "Heroku configlərini kontrol edin."
+            "Botunuzda inline dəstəyi deaktivdir. "
+            "Aktivləşdirmək üçün bir bot token qeyd edin və botunuzda inline modunu aktivləşdirin. "
+            "Əgər bunun xaricində bir xəts olduğunu düşünürsünüzsə, bizə yazın t.me/TheCyberSupport."
         )
+
+    try:
+        bot.loop.run_until_complete(check_botlog_chatid())
+    except:
+        LOGS.info(
+            "BOTLOG_CHATID dəyişgəni keçərli bir varlıq deyil. "
+            "Ortam dəyişgənlərinizi / config.env faylınızı kontrol edin."
+        )
+        
         
 
 from random import randint
@@ -614,6 +621,7 @@ bot.loop.run_until_complete(cyberasistan())
 
 
 # Dəyişgənlər
+MYID = uid
 SON_GORULME = 0
 NOT_AFK = 0
 COUNT_MSG = 0
