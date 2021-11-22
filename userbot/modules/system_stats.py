@@ -1,10 +1,7 @@
-# Copyright (C) 2021 FaridDadashzade
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# C Y B Ξ R
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE

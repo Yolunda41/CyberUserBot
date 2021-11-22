@@ -1,14 +1,9 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# CYBERUSERBOT - FARIDDADASHZADE
-#
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from userbot import LOGS
-
 
 def __list_all_modules():
     from os.path import dirname, basename, isfile
@@ -23,5 +18,5 @@ def __list_all_modules():
 
 
 ALL_MODULES = sorted(__list_all_modules())
-LOGS.info("Yüklenecek modullar: %s", str(ALL_MODULES))
+LOGS.info("Yüklənəcək modullar: %s", str(ALL_MODULES))
 __all__ = ALL_MODULES + ["ALL_MODULES"]

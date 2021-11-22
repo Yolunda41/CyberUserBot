@@ -1,6 +1,7 @@
-# Copyright 2021 (C) FaridDadashzade
-#
-# TG: @faridxz
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import os
 import time
@@ -66,5 +67,4 @@ async def rename(event):
         
 Help = CmdHelp('rename')
 Help.add_command('rename', '<fayla cavab>', 'Seçdiyiniz faylın adını dəyişdirər.')
-Help.add_info('@faridxz tərəfindən @TheCyberUserBot üçün hazırlanmışdır.')
 Help.add()                  

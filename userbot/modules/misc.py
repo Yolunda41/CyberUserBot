@@ -1,7 +1,7 @@
-# CYBERUSERBOT - faridxz #
-
-
-""" Cyber Misc """
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from random import randint
 from asyncio import sleep
@@ -95,7 +95,6 @@ async def restart(event):
 
 @register(outgoing=True, pattern="^.support$")
 async def bot_support(wannahelp):
-    """ .support """
     await wannahelp.edit(LANG['SUPPORT_GROUP'])
 
 
@@ -154,17 +153,17 @@ async def raw(event):
         
 
 CmdHelp('misc').add_command(
-    'random', '<əşya1> <əşya2> ... <əşya3>', 'Əşya listindən təsadufi bir əşya seçər', 'random uniborg userge'
+    'random', '<əşya1> <əşya2> ... <əşya3>', 'Əşya listindən təsadufi bir əşya seçər', 'random uniborg userge cyber'
 ).add_command(
     'sleep', '<vaxt>', 'Bot da bir insandır, o da yorulur. Ara bir biraz yatmağına icazə ver.', 'sleep 30'
 ).add_command(
     'shutdown', None, 'Nostaljik bir şəkildə botunuzu söndürər.'
 ).add_command(
-    'repo', None, 'Cyber botunun GitHub\'dakı reposuna gedən bir link.'
+    'repo', None, 'C Y B Ξ R botunun GitHub\'dakı reposuna gedən bir link.'
 ).add_command(
-    'readme', None, 'Cybdr botunun GitHub\'dakı README.md faylına gedən bir link.'
+    'readme', None, 'C Y B Ξ R botunun GitHub\'dakı README.md faylına gedən bir link.'
 ).add_command(
-    'creator', None, 'Bu botu kimin yaratdığını öyrən :)'
+    'creator', None, 'C Y B Ξ R botunu kimin yaratdığını öyrən :)'
 ).add_command(
     'repeat', '<rəqəm> <mətin>', 'Bir mətini bəlli bir sayıda təkrar edər. Spam əmri ilə qarışdırmayın.'
 ).add_command(

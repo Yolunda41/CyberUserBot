@@ -1,20 +1,20 @@
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
+
 from pydrive.auth import GoogleAuth
 
 
 def main():
     gauth = GoogleAuth()
-    # Qeyd
     gauth.LoadCredentialsFile("secret.json")
     if gauth.credentials is None:
-        # Doğrulama
         gauth.LocalWebserverAuth()
     elif gauth.access_token_expired:
-        # Restart
         gauth.Refresh()
     else:
-        # Kaydedilen kimlik bilgilerini başlat
         gauth.Authorize()
-    # Geçerli kimlik bilgilerini bir dosyaya kaydet
     gauth.SaveCredentialsFile("secret.json")
 
 

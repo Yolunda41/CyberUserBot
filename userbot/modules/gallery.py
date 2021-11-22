@@ -1,8 +1,10 @@
-# CYBERUSERBOT - FARIDDADASHZADE # 
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import re
 import asyncio
-
 from userbot import CMD_HELP, ASYNC_POOL, GALERI_SURE
 from userbot.events import register
 from userbot.main import FotoDegistir
@@ -25,7 +27,8 @@ URL_REGEX = re.compile(
     r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 @register(outgoing=True, pattern="^.qalareya ?(.*)")
-async def galeri(event):
+@register(outgoing=True, pattern="^.galeri ?(.*)")
+async def qalareya(event):
     try:
         import userbot.modules.sql_helper.galeri_sql as sql
     except:

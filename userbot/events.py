@@ -1,8 +1,7 @@
-# Copyright (C) 2021 FaridDadashzade.
-#
-# CyberUserBot - FaridDadashzade
-
-""" CYBERUSERBOT """
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import sys
 from asyncio import create_subprocess_shell as asyncsubshell
@@ -13,17 +12,11 @@ from pathlib import Path
 import re
 import inspect
 from traceback import format_exc
-
 from telethon import events
-
 from userbot import bot, BOTLOG_CHATID, CYBER_VERSION, LOGSPAMMER, PATTERNS, JARVIS, MYID, SUDO_ID
 
 
 def register(**args):
-    #stack = inspect.stack()
-    #cyber_stack_frame = stack[1]
-    #file_test = Path(cyber_stack_frame.filename)
-    #file_test = file_test.stem.replace(".py", "")
     pattern = args.get('pattern', None)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)

@@ -1,5 +1,7 @@
-# CYBERUSERBOT - FARIDDADASHZADE #
-# Forked from https://github.com/ErdemBey1/SiriUserBot/blob/master/userbot/modules/fontlar.py
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from userbot.cmdhelp import CmdHelp
 from userbot.events import register

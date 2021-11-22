@@ -1,16 +1,13 @@
-# Copyright (C) 2021 Farid Dadashzade.
-#
-# All rights reserved.
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from asyncio import sleep
-
 from telethon.errors import rpcbaseerrors
-
 from userbot.cmdhelp import CmdHelp
 from userbot import BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register as cyber
-
-
 
 @cyber(outgoing=True, pattern=r"^\.sd")
 async def selfdestruct(destroy):

@@ -1,5 +1,7 @@
-# CYBERUSERBOT - Luciferxz #
-
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 """ PM Permit """
 
@@ -142,7 +144,6 @@ async def permitpm(event):
 
 @register(disable_edited=True, outgoing=True, disable_errors=True)
 async def auto_accept(event):
-    """ İlk mesajı atan sizseniz otomatik olarak onaylanır. """
     if not PM_AUTO_BAN:
         return
     self_user = await event.client.get_me()

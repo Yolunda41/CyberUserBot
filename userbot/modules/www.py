@@ -1,9 +1,9 @@
-# Copyright (C) 2021 CYBERUSERBOT.
-#
-# CYBERUSERBOT - FARIDXZ
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from datetime import datetime
-
 from speedtest import Speedtest
 from telethon import functions
 from userbot import CMD_HELP, JARVIS, MYID
@@ -66,31 +66,11 @@ async def neardc(event):
 
 @register(outgoing=True, pattern="^.ping$")
 async def pingme(pong):
-    """ .ping komutu userbotun ping değerini herhangi bir sohbette gösterebilir.  """
     start = datetime.now()
     await pong.edit("`Pong!`")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit("`Pong!\n%sms`" % (duration))
-
-
-@register(incoming=True, jarvis=True, pattern="^C Y B Σ R Ping Ölç!$")
-async def jarvisping(ups):
-    if ups.is_reply:
-        reply = await ups.get_reply_message()
-        reply_user = await ups.client.get_entity(reply.from_id)
-        ren = reply_user.id
-        if ren == MYID:
-            "Asistan pinge baxir"
-            start = datetime.now()
-            usp = await ups.reply("`Pong!`")
-            end = datetime.now()
-            duration = (end - start).microseconds / 1000
-            await usp.edit("`Pong!\n%sms`" % (duration))
-        else:
-            return
-    else:
-         return
 
 
 CmdHelp('www').add_command(

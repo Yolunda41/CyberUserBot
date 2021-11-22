@@ -1,7 +1,7 @@
-# CYBERUSERBOT - Luciferxz #
-
-
-""" Cyber Memes """
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from asyncio import sleep
 from random import choice, getrandbits, randint
@@ -390,7 +390,7 @@ async def hayvan(e):
     await e.delete()
     await e.client.send_message(
         e.chat_id,
-        f"`Təsadufi bir {arg} fotosu`",
+        f"`Təsadüfi bir {arg} fotosu`",
         file=foto
     )
 
@@ -487,7 +487,6 @@ async def slap(replied_user, event):
 
 @register(outgoing=True, pattern="^-_-$", ignore_unsafe=True)
 async def lol(lel):
-    """ Tamam... """
     okay = "-_-"
     for i in range(10):
         okay = okay[:-1] + "_-"
@@ -504,19 +503,16 @@ async def fun(e):
 
 @register(outgoing=True, pattern="^.fp$")
 async def facepalm(e):
-    """ Utanmaq 🤦‍♂ """
     await e.edit("🤦‍♂")
 
 
 @register(outgoing=True, pattern="^.cry$")
 async def cry(e):
-    """ !! """
     await e.edit(choice(CRI))
 
 
 @register(outgoing=True, pattern="^.cp(?: |$)(.*)")
 async def copypasta(cp_e):
-    """ copypasta """
     textx = await cp_e.get_reply_message()
     message = cp_e.pattern_match.group(1)
 
@@ -868,7 +864,7 @@ async def let_me_google_that_for_you(lmgtfy_q):
     lfy_url = f"http://lmgtfy.com/?s=g&iie=1&q={query_encoded}"
     payload = {'format': 'json', 'url': lfy_url}
     r = requests.get('http://is.gd/create.php', params=payload)
-    await lmgtfy_q.edit(f"İşte, keyfine bak.\
+    await lmgtfy_q.edit(f"Hazırdır kef elə.\
     \n[{query}]({r.json()['shorturl']})")
 
 

@@ -1,6 +1,7 @@
-# CYBERUSERBOT - Luciferxz #
-
-""" Evaluator """
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import ast
 import asyncio
@@ -194,7 +195,7 @@ async def terminal_runner(term):
 CmdHelp('evaluators').add_command(
     'eval', '<istək>', 'Mini ifadələri dəyərləndirin.', 'eval 2+3'
 ).add_command(
-    'exec', '<python kodu>', 'Kiçik python əmrləri işlədin.', 'exec print(\"C Y B Σ R\")'
+    'exec', '<python kodu>', 'Kiçik python əmrləri işlədin.', 'exec print(\"C Y B Ξ R\")'
 ).add_command(
     'term', '<istək>', 'Serverinizdə bash komandalarını və əmr fayllarını işlədin.', 'term ls'
 ).add()

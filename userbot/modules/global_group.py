@@ -1,6 +1,7 @@
-# CYBERUSERBOT - 2021 (C)
-# CREDITS: https://github.com/H1M4N5HU0P/MAFIA-USERBOT/blob/master/userbot/plugins/global.py
-# ALL RIGHTS RESERVED.
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from telethon.errors.rpcerrorlist import (UserIdInvalidError,
                                             MessageTooLongError)

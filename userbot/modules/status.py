@@ -1,7 +1,7 @@
-# Copyright (C) 2021 FaridDadashzade
-#
-# Cyber UserBot - faridxz
-
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 from userbot import CMD_HELP, ASYNC_POOL, tgbot, SUDO_ID, SPOTIFY_DC, G_DRIVE_CLIENT_ID, lastfm, YOUTUBE_API_KEY, OPEN_WEATHER_MAP_APPID, AUTO_PP, REM_BG_API_KEY, OCR_SPACE_API_KEY, PM_AUTO_BAN, BOTLOG_CHATID, CYBER_VERSION
 from userbot.events import register
 from telethon import version

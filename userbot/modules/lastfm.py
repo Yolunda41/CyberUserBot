@@ -1,11 +1,7 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# Cyber UserBot - Luciferxz #
-
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from asyncio import sleep
 from pylast import User, WSError
@@ -57,7 +53,7 @@ LastLog = False
 
 @register(outgoing=True, pattern="^.lastfm$")
 async def last_fm(lastFM):
-    """ .lastfm komutu last.fm'den verileri çeker. """
+
     await lastFM.edit("İşleniyor...")
     preview = None
     playing = User(LASTFM_USERNAME, lastfm).get_now_playing()
@@ -74,14 +70,14 @@ async def last_fm(lastFM):
         rectrack = sub("^", "https://www.youtube.com/results?search_query=",
                        rectrack)
         if image:
-            output = f"[‎]({image})[{LASTFM_USERNAME}]({username}) __şu an şunu dinliyor:__\n\n• [{playing}]({rectrack})\n`{tags}`"
+            output = f"[‎]({image})[{LASTFM_USERNAME}]({username}) __indi bunu dinləyir:__\n\n• [{playing}]({rectrack})\n`{tags}`"
             preview = True
         else:
-            output = f"[{LASTFM_USERNAME}]({username}) __şu an şunu dinliyor:__\n\n• [{playing}]({rectrack})\n`{tags}`"
+            output = f"[{LASTFM_USERNAME}]({username}) __indi bunu dinləyir:__\n\n• [{playing}]({rectrack})\n`{tags}`"
     else:
         recent = User(LASTFM_USERNAME, lastfm).get_recent_tracks(limit=3)
         playing = User(LASTFM_USERNAME, lastfm).get_now_playing()
-        output = f"[{LASTFM_USERNAME}]({username}) __en son şunu dinledi:__\n\n"
+        output = f"[{LASTFM_USERNAME}]({username}) __ən son bunu dinlədi:__\n\n"
         for i, track in enumerate(recent):
             print(i)
             printable = await artist_and_song(track)
@@ -151,7 +147,7 @@ async def get_curr_track(lfmbio):
                     if BOTLOG and LastLog:
                         await bot.send_message(
                             BOTLOG_CHATID,
-                            f"Biyografi şuna çevrildi: \n{lfmbio}")
+                            f"Biyoqrafiya buna çevrildi: \n{lfmbio}")
                     await bot(UpdateProfileRequest(about=lfmbio))
                 except AboutTooLongError:
                     short_bio = f"🎧: {SONG}"
@@ -162,7 +158,7 @@ async def get_curr_track(lfmbio):
                     await bot(UpdateProfileRequest(about=DEFAULT_BIO))
                     if BOTLOG and LastLog:
                         await bot.send_message(
-                            BOTLOG_CHATID, f"Biyografi geri şuna çevrildi: \n{DEFAULT_BIO}")
+                            BOTLOG_CHATID, f"Biyoqrafiya geri buna çevrildi: \n{DEFAULT_BIO}")
         except AttributeError:
             try:
                 if user_info.about != DEFAULT_BIO:
@@ -170,19 +166,19 @@ async def get_curr_track(lfmbio):
                     await bot(UpdateProfileRequest(about=DEFAULT_BIO))
                     if BOTLOG and LastLog:
                         await bot.send_message(
-                            BOTLOG_CHATID, f"Biyografi geri şuna çevrildi \n{DEFAULT_BIO}")
+                            BOTLOG_CHATID, f"Biyoqrafiya geri buna çevrildi \n{DEFAULT_BIO}")
             except FloodWaitError as err:
                 if BOTLOG and LastLog:
                     await bot.send_message(BOTLOG_CHATID,
-                                           f"Biyografi değiştirilirken hata oluştu :\n{err}")
+                                           f"Biyoqrafiya dəyişdirilərkən xəta yarandı :\n{err}")
         except FloodWaitError as err:
             if BOTLOG and LastLog:
                 await bot.send_message(BOTLOG_CHATID,
-                                       f"Biyografi değiştirilirken hata oluştu :\n{err}")
+                                       f"Biyoqrafiya dəyişdirilərkən xəta yarandı :\n{err}")
         except WSError as err:
             if BOTLOG and LastLog:
                 await bot.send_message(BOTLOG_CHATID,
-                                       f"Biyografi değiştirilirken hata oluştu: \n{err}")
+                                       f"Biyoqrafiya dəyişdirilərkən xəta yarandı: \n{err}")
         await sleep(2)
     RUNNING = False
 
@@ -226,9 +222,9 @@ async def lastlog(lstlog):
         await lstlog.edit(LFM_LOG_ERR)
 
 CmdHelp('lastfm').add_command(
-    'lastfm', None, 'Şu anlık oynatılan parça ya da en son oynatılan parça gösterilir.'
+    'lastfm', None, 'Hal hazırda oxudulan trek və ya ən son oxudulan treki göstərilir..'
 ).add_command(
-    'lastbio', '<on/off>', 'last.fm\'deki şu an oynatılan parça gösterimi etkinleştirilir/devre dışı bırakılır.'
+    'lastbio', '<on/off>', 'last.fm-də hal-hazırda oxudulan trekin bioqrafiya qeydini aktivləşdirin/deaktiv edin.'
 ).add_command(
-    'lastlog', '<on/off>', 'last.fm biyografi loglamasını etkinleştirir/devre dışı bırakır.'
+    'lastlog', '<on/off>', 'last.fm bioqrafiya qeydini aktivləşdirir/söndürür.'
 ).add()

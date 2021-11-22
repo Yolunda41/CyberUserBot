@@ -1,6 +1,7 @@
-# Copyright (C) 2021 Farid Dadashzade
-# 
-# CyberUserBot - FaridDadashzade
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import os
 import time
@@ -517,7 +518,7 @@ else:
 async def cyberasistan():
     if BOT_TOKEN:
         return
-    ASISTAN_LOGO = "https://telegra.ph/file/70dd4ae890b0b174ab479.jpg"    
+    ASISTAN_LOGO = "https://telegra.ph/file/c4cf01aa4b6e61d5a5312.jpg"    
     await bot.start()
     LOGS.info("C Y B Ξ R asistanı ayarlanır...")
     DEFAULT_NAME + "-nin asistanı"

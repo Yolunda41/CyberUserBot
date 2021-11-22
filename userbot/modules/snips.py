@@ -1,7 +1,7 @@
-# CYBERUSERBOT - Luciferxz #
-
-
-""" Notlar """
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from userbot.events import register
 from userbot import CMD_HELP, BOTLOG_CHATID
@@ -60,7 +60,7 @@ async def on_snip_save(event):
             await event.client.send_message(
                 BOTLOG_CHATID, f"#SNIP\
             \nSÖZ: {keyword}\
-            \n\nAşağıdakI mesaj snip üçün qeyd edilir, xaiş edirəm silməyin !!"
+            \n\nAşağıdakı mesaj snip üçün qeyd edilir, xaiş edirəm silməyin!!"
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID,
@@ -110,13 +110,14 @@ async def on_snip_delete(event):
     try:
         from userbot.modules.sql_helper.snips_sql import remove_snip
     except AttributeError:
-        await event.edit("`SQL xarici odda işləyir!`")
+        await event.edit("`SQL xarici modda işləyir!`")
         return
     name = event.pattern_match.group(1)
     if remove_snip(name) is True:
         await event.edit(f"`Snip:` **{name}** `{LANG['DELETED']}`")
     else:
         await event.edit(f"`Snip:` **{name}** `{LANG['NOT_FOUND']}` ")
+
 
 CmdHelp('snips').add_command(
     '$<snip_adı>', None, 'Snipi çağırar.'

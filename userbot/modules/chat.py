@@ -1,10 +1,7 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
-
-# CYBERUSERBOT - FARIDDADASHZADE
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 # ██████ LANGUAGE CONSTANTS ██████ #
 
@@ -63,7 +60,6 @@ async def permalink(mention):
 
 @register(outgoing=True, pattern="^.chatid$")
 async def chatidgetter(chat):
-    """ .chatid komutu belirlenen grubun ID numarasını verir """
     await chat.edit(f"{LANG['GROUP']} `" + str(chat.chat_id) + "`")
 
 
@@ -74,7 +70,7 @@ async def log(log_text):
             reply_msg = await log_text.get_reply_message()
             await reply_msg.forward_to(BOTLOG_CHATID)
         elif log_text.pattern_match.group(1):
-            user = f"#LOG / Grup ID: {log_text.chat_id}\n\n"
+            user = f"#LOG / QRUP ID: {log_text.chat_id}\n\n"
             textx = user + log_text.pattern_match.group(1)
             await bot.send_message(BOTLOG_CHATID, textx)
         else:
@@ -95,7 +91,7 @@ async def kickme(leave):
     await leave.edit(f"{PLUGIN_MESAJLAR['kickme']}".format(
         id=chat.id,
         title=chat.title,
-        member_count="Bilinmiyor" if chat.participants_count == None else (chat.participants_count - 1)
+        member_count="Bilinmir" if chat.participants_count == None else (chat.participants_count - 1)
     ))
     await leave.client.kick_participant(leave.chat_id, 'me')
 
@@ -105,7 +101,7 @@ async def unmute_chat(unm_e):
     try:
         from userbot.modules.sql_helper.keep_read_sql import unkread
     except AttributeError:
-        await unm_e.edit('`SQL dışı modda çalışıyor!`')
+        await unm_e.edit('`SQL xarici modda işləyir!`')
         return
     unkread(str(unm_e.chat_id))
     await unm_e.edit(LANG['UNMUTED'])
@@ -118,7 +114,7 @@ async def mute_chat(mute_e):
     try:
         from userbot.modules.sql_helper.keep_read_sql import kread
     except AttributeError:
-        await mute_e.edit("`SQL dışı modda çalışıyor!`")
+        await mute_e.edit("`SQL xarici modda işləyir!`")
         return
     await mute_e.edit(str(mute_e.chat_id))
     kread(str(mute_e.chat_id))
@@ -150,7 +146,6 @@ regexNinja = False
 
 @register(outgoing=True, pattern="^s/")
 async def sedNinja(event):
-    """Regex-ninja modülü için, s/ ile başlayan otomatik silme komutu"""
     if regexNinja:
         await sleep(.5)
         await event.delete()
@@ -158,16 +153,15 @@ async def sedNinja(event):
 
 @register(outgoing=True, pattern="^.regexninja (on|off)$")
 async def sedNinjaToggle(event):
-    """ Regex ninja modülünü etkinleştirir veya devre dışı bırakır. """
     global regexNinja
     if event.pattern_match.group(1) == "on":
         regexNinja = True
-        await event.edit("`Regexbot için ninja modu etkinleştirdi.`")
+        await event.edit("`Regexbot üçün ninja modu aktivləşdirildi.`")
         await sleep(1)
         await event.delete()
     elif event.pattern_match.group(1) == "off":
         regexNinja = False
-        await event.edit("`Regexbot için ninja modu devre dışı bırakıldı.`")
+        await event.edit("`Regexbot üçün ninja modu qeyri aktiv edildi.`")
         await sleep(1)
         await event.delete()
 
@@ -175,20 +169,19 @@ async def sedNinjaToggle(event):
 CMD_HELP.update({
     "chat":
     ".chatid\
-\nKullanım: Belirlenen grubun ID numarasını verir\
+\nİstifadə: Göstərilən qrupun İD nömrəsini verir\
 \n\n.userid\
-\nKullanım: Belirlenen kullanıcının ID numarasını verir.\
-\n\n.log\
-\nKullanım: Yanıtlanan mesajı günlük grubuna gönderir.\
+\nİstifadə: Göstərilən istifadəçinin İD nömrəsini verir.\
+\n\n.log\n\nİstifadə: Cavablanmış mesajı Gündəlik qrupuna göndərir.\
 \n\n.kickme\
-\nKullanım: Belirlenen gruptan ayrılmanızı sağlar.\
+\nİstifadə: Göstərilən qrupdan çıxmağınıza imkan verir.\
 \n\n.unmutechat\
-\nKullanım: Susturulmuş bir sohbetin sesini açar.\
+\nİstifadə: Səssizdə olan qrupun səsini açar.\
 \n\n.mutechat\
-\nKullanım: Belirlenen grubu susturur.\
-\n\n.link <kullanıcı adı/kullanıcı id> : <isteğe bağlı metin> (veya) herhangi birinin mesajına .link ile yanıt vererek <isteğe bağlı metin>\
-\nKullanım: İsteğe bağlı özel metin ile kullanıcının profiline kalıcı bir bağlantı oluşturun.\
+\nİstifadə: Göstərilən qrupu susdurur.\
+\n\n.link <istifadəçi adı/İstifadəçi id> : <istəyə bağlı mətn> (və ya) kiminsə mesajına .link ilə cavab verərək <isteğe bağlı mətnn>\
+\nİstifadə: İstəyə uyğun xüsusi mətn ilə istifadəçi profilinə qalıcı bir əlaqə yaradın.\
 \n\n.regexninja on/off\
-\nKullanım: Küresel olarak regex ninja modülünü etkinleştirir / devre dışı bırakır.\
-\nRegex ninja modülü regex bot tarfından tetiklenen mesajları silmek için yardımcı olur."
+\nİstifadə: Regex ninja modulunu qlobal olaraq aktivləşdirir / qeyri aktiv edir.\
+\nRegex ninja modulu, regex botunun yaratdığı mesajları silməyə kömək edir."
 })

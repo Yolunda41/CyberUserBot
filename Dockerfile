@@ -1,7 +1,7 @@
-# Copyright (C) 2021 FaridDadashzade.
-# Licensed under MIT license;
-# you may not use this file except in compliance with the License.
-# All rights reserved.
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 FROM cyberuserbot/cyberspaceaz:latest
 RUN git clone https://github.com/FaridDadashzade/CyberUserBot /root/CyberUserBot

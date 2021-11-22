@@ -1,10 +1,7 @@
-# Copyright (C) 2020 Yusuf Usta.
-#
-# Licensed under the GPL-3.0 License;
-# you may not use this file except in compliance with the License.
-#
-
-# CyberUserBot - Luciferxz
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from . import LANGUAGE, LOGS, bot, PLUGIN_CHANNEL_ID
 from json import loads, JSONDecodeError
@@ -50,12 +47,12 @@ if LANGUAGE_JSON == None:
             raise Exception("Invalid json file")
     else:
         if path.isfile("./userbot/language/DEFAULT.cyberjson"):
-            LOGS.warn("Varsayılan dil dosyası kullanılıyor...")
+            LOGS.warn("Default dil faylı istifadə edilir...")
             LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.cyberjson", "r").read())
         else:
             raise Exception(f"Didn't find {LANGUAGE} file")
 
-LOGS.info(f"{LANGUAGE_JSON['LANGUAGE']} dili yüklendi.")
+LOGS.info(f"{LANGUAGE_JSON['LANGUAGE']} dili yükləndi.")
 
 def get_value (plugin = None, value = None):
     global LANGUAGE_JSON

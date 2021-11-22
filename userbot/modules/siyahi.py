@@ -1,4 +1,7 @@
-# CYBERUSERBOT
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from userbot import CMD_HELP
 from userbot.events import register
@@ -16,6 +19,7 @@ LANG = get_value("liste")
 # ████████████████████████████████ #
 
 @register(outgoing=True, pattern="^.siyahi ?(gmute|gban)?")
+@register(outgoing=True, pattern="^.liste ?(gmute|gban)?")
 async def liste(event):
     liste = event.pattern_match.group(1)
     try:

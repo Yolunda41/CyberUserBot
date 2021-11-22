@@ -1,14 +1,16 @@
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
+
 import glob
 import os
 import random
-
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
 from userbot.events import register
 from userbot import DEFAULT_NAME, SAHIB_ID
 from userbot.cmdhelp import CmdHelp
-
-# credits: https://github.com/TeamUltroid/Ultroid/blob/main/plugins/logo.py
 
 @register(cyber=True, pattern=r"^\.loqo(?: |$)(.*)")
 @register(cyber=True, pattern=r"^\.logo(?: |$)(.*)")

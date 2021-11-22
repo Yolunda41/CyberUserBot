@@ -1,14 +1,9 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
-# CYBERUSERBOT - FARIDDADASHZADE
-
-
-# Deepfry modülü kaynak kodu: https://github.com/Ovyerus/deeppyer
-# @NaytSeyd tarafından portlanmıştır.
+# Deepfry repository url: https://github.com/Ovyerus/deeppyer
 
 import io
 from random import randint, uniform
@@ -46,13 +41,11 @@ async def deepfryer(event):
         await event.edit(LANG['REPLY_PHOTO'])
         return
 
-    # Fotoğrafı (yüksek çözünürlük) bayt dizisi olarak indir
     await event.edit(LANG['MEDIA_DOWNLOADING'])
     image = io.BytesIO()
     await event.client.download_media(data, image)
     image = Image.open(image)
 
-    # Resime uygula
     await event.edit(LANG['APPLYING_DEEPFRY'])
     for _ in range(frycount):
         image = await deepfry(image)
@@ -73,7 +66,6 @@ async def deepfry(img: Image) -> Image:
 
     img = img.copy().convert("RGB")
 
-    # Resim formatı ayarla
     img = img.convert("RGB")
     width, height = img.width, img.height
     img = img.resize((int(width ** uniform(0.8, 0.9)), int(height ** uniform(0.8, 0.9))), resample=Image.LANCZOS)
@@ -82,14 +74,12 @@ async def deepfry(img: Image) -> Image:
     img = img.resize((width, height), resample=Image.BICUBIC)
     img = ImageOps.posterize(img, randint(3, 7))
 
-    # Renk yerleşimi oluştur
     overlay = img.split()[0]
     overlay = ImageEnhance.Contrast(overlay).enhance(uniform(1.0, 2.0))
     overlay = ImageEnhance.Brightness(overlay).enhance(uniform(1.0, 2.0))
 
     overlay = ImageOps.colorize(overlay, colours[0], colours[1])
 
-    # Kırmızı ve sarıyı ana görüntüye yerleştir ve keskinleştir
     img = Image.blend(img, overlay, uniform(0.1, 0.4))
     img = ImageEnhance.Sharpness(img).enhance(randint(5, 300))
 

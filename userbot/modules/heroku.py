@@ -1,3 +1,8 @@
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
+
 import codecs
 import heroku3
 import asyncio
@@ -29,9 +34,6 @@ if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
     heroku_var = app.config()
 else:
     app = None
-
-
-"""Config Vars dəyəri əlavə edin və ya silin..."""
 
 
 @register(outgoing=True,
@@ -179,7 +181,7 @@ async def dyno_usage(dyno):
     minutes_remaining = remaining_quota / 60
     hours = math.floor(minutes_remaining / 60)
     minutes = math.floor(minutes_remaining % 60)
-    cybergun = math.floor(hours / 24) #credits: https://github.com/NinjaTG/MyBot/blob/90ebd06a8fcbdb058ddc4a5c599a179e73290350/bot/modules/usage.py#L50
+    cybergun = math.floor(hours / 24) 
 
     """ - Current - """
     App = result['apps']

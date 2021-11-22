@@ -1,5 +1,7 @@
-# CYBERUSERBOT - Luciferxz
-
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import asyncio
 import math
@@ -20,18 +22,13 @@ import httplib2
 from userbot.modules.upload_download import progress, humanbytes
 from userbot.cmdhelp import CmdHelp
 
-# Json dosyasının yolu, script ile aynı dizinde bulunmalıdır.
+
 G_DRIVE_TOKEN_FILE = "./auth_token.txt"
-# API konsolundan kişisel bilgilerinizi kopyalar
 CLIENT_ID = G_DRIVE_CLIENT_ID
 CLIENT_SECRET = G_DRIVE_CLIENT_SECRET
-# Mevcut alan tüm alanları kontrol eder: https://developers.google.com/drive/scopes
 OAUTH_SCOPE = "https://www.googleapis.com/auth/drive.file"
-# URI'yi yüklü uygulamalar için yönlendirir, olduğu gibi bırakılabilir.
 REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
-# Yüklenecek klasör IDsini ayarlamaya yarayan evrensel değer
 parent_id = GDRIVE_FOLDER_ID
-# Dizinlerin mimeType değerini belirten evrensel değer
 G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
 
 
@@ -434,7 +431,7 @@ async def gdrive_search(http, search_query):
     return msg
 
 CmdHelp('gdrive').add_command(
-    'gdrive', '<fayl yolu / cavablayaraq / URL|fayl-adı>', 'Seçilən faylı Google Drive\'a upload edər.'
+    'gdrive', '<fayl yolu/cavablayaraq/URL|fayl-adı>', 'Seçilən faylı Google Drive\'a upload edər.'
 ).add_command(
     'gsetf', '<GDrive Qovluq URL\'si>', 'Yeni faylların upladlanacağı qovluğu seçər.'
 ).add_command(

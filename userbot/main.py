@@ -1,6 +1,7 @@
-# Copyright (C) 2021 Farid Dadashzade
-#
-# CYBERUSERBOT - FaridDadashzade
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import importlib
 from importlib import import_module
@@ -246,7 +247,7 @@ try:
 
                     spec.loader.exec_module(mod)
                 except Exception as e:
-                    LOGS.info(f"`Yükləmədə problem! Plugin xətalıdır.\n\nXəta: {e}`")
+                    LOGS.info(f"Yükləmədə problem! Plugin xətalıdır.\n\nXəta: {e}`")
 
                     try:
                         plugin.delete()
@@ -258,7 +259,7 @@ try:
                     continue
                 extractCommands('./userbot/modules/' + plugin.file.name)
     else:
-        bot.send_message("me", f"`Xahiş edirəm pluginlerin qalıcı olması üçün PLUGIN_CHANNEL_ID'i ayarlayın.`")
+        bot.send_message("me", f"`Xahiş edirəm pluginlərin qalıcı olması üçün PLUGIN_CHANNEL_ID'i ayarlayın.`")
 except PhoneNumberInvalidError:
     print(INVALID_PH)
     sys.exit(1)
@@ -293,23 +294,11 @@ async def startupcyber():
         if QRUP != 0:
             await bot.send_message(
                 QRUP,
-                f"Salam! Mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R Version: **{CYBER_VERSION}**\n**Plugin sayı: {len(CMD_HELP)}**\n**Sahib: {CYBER_NAME}**\n**Plugin kanalı:** @TheCyberPlugin\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)",
+                f"**Salam! Mən C Y B Ξ R UserBot**\n**Botumuzu qurduğunuz üçün təşəkkür edirəm!**\n**Botunuz aktivdir.**\n\n**C Y B Ξ R Version:** **{CYBER_VERSION}**\n**Plugin sayı: {len(CMD_HELP)}**\n**Sahib: {CYBER_NAME}**\n**Plugin kanalı:** @TheCyberPlugin\n\n**Yardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)**",
             )
     except Exception as e:
         LOGS.info(str(e))
-    
-    
-    
-async def cyberasistan():
-    if CYBER_BOT == "ON":
-        path = "userbot/cyber/*.py"
-        files = glob.glob(path)
-        for name in files:
-            with open(name) as f:
-                path1 = Path(f.name)
-                shortname = path1.stem
-                startcyberbot(shortname.replace(".py", ""))
-    
+
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
@@ -326,13 +315,14 @@ async def FotoDegistir (foto):
     except:
         return False
 
+
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
     
+
 loop = asyncio.get_event_loop()
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin.")
 LOGS.info("Köməyə ehtiyacınız olarsa, @TheCyberSupport qrupuna yazın.")
 LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
-#bot.loop.run_until_complete(cyberasistan())
 bot.loop.create_task(startupcyber())
 bot.run_until_disconnected()

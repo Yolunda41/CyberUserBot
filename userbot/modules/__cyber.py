@@ -1,7 +1,7 @@
-# Copyright (C) 2021 FaridDadashzade.
-#
-# CYBERUSERBOT - FaridDadashzade
-#
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from userbot.cmdhelp import CmdHelp
 from userbot import cmdhelp
@@ -17,7 +17,6 @@ LANG = get_value("__cyber")
 
 @register(outgoing=True, pattern="^.cyber(?: |$)(.*)")
 async def cyber(event):
-    """ .cyber əmri üçün """
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:

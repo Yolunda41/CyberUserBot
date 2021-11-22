@@ -1,4 +1,7 @@
-# Cyber UserBot - Luciferxz #
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -14,12 +17,12 @@ async def stick(event):
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("`Sadəcə və sadəcə şəkilləri ver`")
+        await event.edit("`Sadəcə və sadəcə şəkilləri ver.`")
         return
     chat = "@BuildStickerBot"
     reply_message.sender
     if reply_message.sender.bot:
-        await event.edit("Ups deyəsən bu bir botdur. Bağışla ama hipokratbots andına görə botlardan mesaj və media qəbul etmirəm.")
+        await event.edit("Botlardan olan mesajları qəbul edə bilmirəm!")
         return
     asc = await event.edit("`Stickerə çevrirəm...`")
     async with event.client.conversation(chat) as conv:
@@ -50,18 +53,18 @@ async def tweet(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("`Bir yazıya cavap verin`")
+        await event.edit("`Bir yazıya cavab verin`")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.message:
-        await event.edit("`Yalnız yazıya tweet effekti uyğulaya bilirəm`")
+        await event.edit("`Yalnız yazıya tweet effekti əlavə bilirəm`")
         return
     chat = "@TwitterStatusBot"
     reply_message.sender
     if reply_message.sender.bot:
-        await event.edit("Oups botlar tweet effekti istifadə edə bilməz.")
+        await event.edit("Ups botlar tweet effekti istifadə edə bilməz.")
         return
-    asc = await event.edit("Tweet `uygulanir`")
+    asc = await event.edit("`Tweeting..`")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -74,7 +77,7 @@ async def tweet(event):
             return
         if response.text.startswith("Forward"):
             await event.edit(
-                "Gizlilik ayarlarınızı düzəldin pleas."
+                "Gizlilik ayarlarınızı düzəldin."
             )
         else:
             await event.delete()
@@ -90,16 +93,16 @@ async def png(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("`Pleas. Bir şəkilə yada stikcerə cavab verin.`")
+        await event.edit("`Xahiş edirəm, bir şəkilə yada stikcerə cavab verin.`")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("`Pleas. Bir şəkilə yada stikcerə cavab verin.`")
+        await event.edit("`Xahiş edirəm, bir şəkilə yada stikcerə cavab verin.`")
         return
     chat = "@newstickeroptimizerbot"
     reply_message.sender
     if reply_message.sender.bot:
-        await event.edit("Oups botlar PNG converter istifadə edə bilməz")
+        await event.edit("Oups botlar PNG converter istifadə edə bilməz.")
         return
     asc = await event.edit("PNG-yə `çevrilir`")
     async with event.client.conversation(chat) as conv:
@@ -126,7 +129,7 @@ async def png(event):
             await event.client.send_read_acknowledge(conv.chat_id)
 
 CmdHelp('stick').add_command(
-    'stick', None, 'Yanıtladığınız şəkli Sticker olarağ atar (Packe qeyd etmez sadece sticker olarag atar).'
+    'stick', None, 'Cavab verdiyiniz şəkli Sticker olaraq atar.'
 ).add_command(
     'png', None, 'Cavab verdiyiniz stickeri və ya şəkili PNG formatına çevirər.'
 ).add_command(

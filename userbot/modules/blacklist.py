@@ -1,6 +1,7 @@
-# Copyright (C) 2021 FaridDadashzade.
-
-# CYBERUSERBOT - FaridDadashzade.
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import io
 import re
@@ -18,7 +19,7 @@ LANG = get_value("blacklist")
 
 # ████████████████████████████████ #
 
-KUFURLER = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/forbidden.json').json()
+SOYUSLER = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/forbidden.json').json()
 
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def on_new_message(event):
@@ -26,7 +27,7 @@ async def on_new_message(event):
     snips = sql.get_chat_blacklist(event.chat_id)
     for snip in snips:
         if snip == "küfür":
-            for kufur in KUFURLER:
+            for kufur in SOYUSLER:
                 pattern = r"( |^|[^\w])" + re.escape(kufur) + r"( |$|[^\w])"
                 if re.search(pattern, name, flags=re.IGNORECASE):
                     try:

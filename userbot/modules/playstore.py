@@ -1,4 +1,7 @@
-# CyberUserBot - Luciferxz #
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import bs4
 import requests
@@ -44,5 +47,4 @@ async def play_store(message):
         
 Help = CmdHelp('playstore')
 Help.add_command('playstore', '<proqram adı>', 'Qeyd etdiyiniz proqram haqqında məlumat verər.')
-Help.add_info('@faridxz tərəfindən @TheCyberUserBot üçün hazırlanmışdır.')
 Help.add()                  

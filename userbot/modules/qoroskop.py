@@ -1,6 +1,7 @@
-# Copyright (C) 2021 CyberUserBot.
-#
-# All rights reserved.
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import pyaztro
 
@@ -8,7 +9,6 @@ from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
 CYBER = ""
-
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.qoroskop (.*)")
 async def cyber(e):

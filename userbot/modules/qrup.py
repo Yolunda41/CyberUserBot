@@ -1,6 +1,7 @@
-# CYBERUSERBOT - FARIDDADASHZADE
-#
-# ALL RIGHTS RESERVED.
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# Please read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 from telethon.errors import (ChannelInvalidError, ChannelPrivateError, ChannelPublicGroupNaError)
 from emoji import emojize
@@ -14,7 +15,7 @@ from telethon.utils import get_input_location
 from userbot.cmdhelp import CmdHelp
 
  
-@register(outgoing=True, pattern="^.qrupmelumati(?: |$)(.*)")
+@register(outgoing=True, pattern="^.groupinfo(?: |$)(.*)")
 async def info(event):
     await event.edit("`Qrup analiz edilir...`")
     chat = await get_chatinfo(event)
@@ -191,4 +192,4 @@ async def fetch_info(chat, event):
         caption += f"Açıqlama: \n<code>{description}</code>\n"
     return caption    
 
-CmdHelp('qrup').add_command('qrupmelumati', None, 'Qrup haqqında məlumat verər.').add()
+CmdHelp('qrup').add_command('groupinfo', None, 'Qrup haqqında məlumat verər.').add()

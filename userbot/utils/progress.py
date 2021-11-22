@@ -1,6 +1,7 @@
-# Copyright (C) 2021 Farid Dadashzade
-# Telegram: @Faridxz
-#
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
 
 import math
 import time
@@ -42,4 +43,4 @@ async def progress(
             f"`ETA` -> {time_formatter(eta)}\n"
             f"`Təxmini` -> {time_formatter(elapsed_time)}"
         )
-        await gdrive.edit(f"`{prog_type}`\n\n" f"`C Y B Σ R`\n{tmp}")
+        await gdrive.edit(f"`{prog_type}`\n\n" f"`C Y B Ξ R`\n{tmp}")

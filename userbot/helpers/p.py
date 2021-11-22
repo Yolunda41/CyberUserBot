@@ -1,3 +1,8 @@
+# Copyright (C) 2021 CyberUserBot
+# This file is a part of < https://github.com/FaridDadashzade/CyberUserBot/ >
+# PLease read the GNU General Public License v3.0 in
+# <https://www.github.com/FaridDadashzade/CyberUserBot/blob/master/LICENSE/>.
+
 def e_(fayl_adi, name, slep, siyahi):
 	f = open(f"./cyberuserbot{fayl_adi}.py", "x")
 	f.write(f"""from userbot.events import register
