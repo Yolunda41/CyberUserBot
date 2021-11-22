@@ -23,6 +23,7 @@ from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from math import ceil
 from datetime import datetime
+from telethon.tl.functions.contacts import UnblockRequest
 
 load_dotenv("config.env")
 
