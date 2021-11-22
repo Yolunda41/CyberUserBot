@@ -73,6 +73,7 @@ SUDO_VERSION = "v1.1"
 # Asistan özəlliyi
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+CYBER_BOT = os.environ.get("CYBER_BOT", None)
 
 # API KEY və API HASH
 API_KEY = os.environ.get("API_KEY", None)
